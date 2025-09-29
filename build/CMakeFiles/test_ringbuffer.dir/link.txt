@@ -1,0 +1,1 @@
+/usr/bin/c++ -g --coverage CMakeFiles/test_ringbuffer.dir/tests/test_ringbuffer.cpp.o -o test_ringbuffer  libringbuffer.a lib/libgtest_main.a -lpthread lib/libgtest.a 
