@@ -6,10 +6,12 @@ extern "C" {
 TEST(RingBufferTest, BasicAddRemove) {
     ringbuffer_init(5);
     EXPECT_TRUE(ringbuffer_is_empty());
+    int v;
+    EXPECT_EQ(-1, ringbuffer_remove(&v));
     EXPECT_EQ(0, ringbuffer_add(10));
     EXPECT_EQ(0, ringbuffer_add(20));
+    EXPECT_EQ(2, ringbuffer_size());
     EXPECT_FALSE(ringbuffer_is_empty());
-    int v;
     EXPECT_EQ(0, ringbuffer_remove(&v));
     EXPECT_EQ(10, v);
     EXPECT_EQ(0, ringbuffer_remove(&v));

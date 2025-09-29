@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -1368,17 +1368,17 @@
 <a name="1306"><span class="lineNum">    1306 </span>            : // Returns the name of the environment variable corresponding to the</a>
 <a name="1307"><span class="lineNum">    1307 </span>            : // given flag.  For example, FlagToEnvVar(&quot;foo&quot;) will return</a>
 <a name="1308"><span class="lineNum">    1308 </span>            : // &quot;GTEST_FOO&quot; in the open-source version.</a>
-<a name="1309"><span class="lineNum">    1309 </span><span class="lineCov">         23 : static std::string FlagToEnvVar(const char* flag) {</span></a>
+<a name="1309"><span class="lineNum">    1309 </span><span class="lineCov">         46 : static std::string FlagToEnvVar(const char* flag) {</span></a>
 <a name="1310"><span class="lineNum">    1310 </span>            :   const std::string full_flag =</a>
-<a name="1311"><span class="lineNum">    1311 </span><span class="lineCov">         23 :       (Message() &lt;&lt; GTEST_FLAG_PREFIX_ &lt;&lt; flag).GetString();</span></a>
+<a name="1311"><span class="lineNum">    1311 </span><span class="lineCov">         46 :       (Message() &lt;&lt; GTEST_FLAG_PREFIX_ &lt;&lt; flag).GetString();</span></a>
 <a name="1312"><span class="lineNum">    1312 </span>            : </a>
-<a name="1313"><span class="lineNum">    1313 </span><span class="lineCov">         23 :   Message env_var;</span></a>
-<a name="1314"><span class="lineNum">    1314 </span><span class="lineCov">        495 :   for (size_t i = 0; i != full_flag.length(); i++) {</span></a>
-<a name="1315"><span class="lineNum">    1315 </span><span class="lineCov">        472 :     env_var &lt;&lt; ToUpper(full_flag.c_str()[i]);</span></a>
+<a name="1313"><span class="lineNum">    1313 </span><span class="lineCov">         46 :   Message env_var;</span></a>
+<a name="1314"><span class="lineNum">    1314 </span><span class="lineCov">        990 :   for (size_t i = 0; i != full_flag.length(); i++) {</span></a>
+<a name="1315"><span class="lineNum">    1315 </span><span class="lineCov">        944 :     env_var &lt;&lt; ToUpper(full_flag.c_str()[i]);</span></a>
 <a name="1316"><span class="lineNum">    1316 </span>            :   }</a>
 <a name="1317"><span class="lineNum">    1317 </span>            : </a>
-<a name="1318"><span class="lineNum">    1318 </span><span class="lineCov">         46 :   return env_var.GetString();</span></a>
-<a name="1319"><span class="lineNum">    1319 </span><span class="lineCov">         23 : }</span></a>
+<a name="1318"><span class="lineNum">    1318 </span><span class="lineCov">         92 :   return env_var.GetString();</span></a>
+<a name="1319"><span class="lineNum">    1319 </span><span class="lineCov">         46 : }</span></a>
 <a name="1320"><span class="lineNum">    1320 </span>            : </a>
 <a name="1321"><span class="lineNum">    1321 </span>            : // Parses 'str' for a 32-bit signed integer.  If successful, writes</a>
 <a name="1322"><span class="lineNum">    1322 </span>            : // the result to *value and returns true; otherwise leaves *value</a>
@@ -1425,29 +1425,29 @@
 <a name="1363"><span class="lineNum">    1363 </span>            : // the given flag; if it's not set, returns default_value.</a>
 <a name="1364"><span class="lineNum">    1364 </span>            : //</a>
 <a name="1365"><span class="lineNum">    1365 </span>            : // The value is considered true if and only if it's not &quot;0&quot;.</a>
-<a name="1366"><span class="lineNum">    1366 </span><span class="lineCov">         14 : bool BoolFromGTestEnv(const char* flag, bool default_value) {</span></a>
+<a name="1366"><span class="lineNum">    1366 </span><span class="lineCov">         28 : bool BoolFromGTestEnv(const char* flag, bool default_value) {</span></a>
 <a name="1367"><span class="lineNum">    1367 </span>            : #if defined(GTEST_GET_BOOL_FROM_ENV_)</a>
 <a name="1368"><span class="lineNum">    1368 </span>            :   return GTEST_GET_BOOL_FROM_ENV_(flag, default_value);</a>
 <a name="1369"><span class="lineNum">    1369 </span>            : #else</a>
-<a name="1370"><span class="lineNum">    1370 </span><span class="lineCov">         14 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
-<a name="1371"><span class="lineNum">    1371 </span><span class="lineCov">         14 :   const char* const string_value = posix::GetEnv(env_var.c_str());</span></a>
-<a name="1372"><span class="lineNum">    1372 </span><span class="lineCov">         14 :   return string_value == nullptr ? default_value</span></a>
-<a name="1373"><span class="lineNum">    1373 </span><span class="lineCov">         28 :                                  : strcmp(string_value, &quot;0&quot;) != 0;</span></a>
+<a name="1370"><span class="lineNum">    1370 </span><span class="lineCov">         28 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
+<a name="1371"><span class="lineNum">    1371 </span><span class="lineCov">         28 :   const char* const string_value = posix::GetEnv(env_var.c_str());</span></a>
+<a name="1372"><span class="lineNum">    1372 </span><span class="lineCov">         28 :   return string_value == nullptr ? default_value</span></a>
+<a name="1373"><span class="lineNum">    1373 </span><span class="lineCov">         56 :                                  : strcmp(string_value, &quot;0&quot;) != 0;</span></a>
 <a name="1374"><span class="lineNum">    1374 </span>            : #endif  // defined(GTEST_GET_BOOL_FROM_ENV_)</a>
-<a name="1375"><span class="lineNum">    1375 </span><span class="lineCov">         14 : }</span></a>
+<a name="1375"><span class="lineNum">    1375 </span><span class="lineCov">         28 : }</span></a>
 <a name="1376"><span class="lineNum">    1376 </span>            : </a>
 <a name="1377"><span class="lineNum">    1377 </span>            : // Reads and returns a 32-bit integer stored in the environment</a>
 <a name="1378"><span class="lineNum">    1378 </span>            : // variable corresponding to the given flag; if it isn't set or</a>
 <a name="1379"><span class="lineNum">    1379 </span>            : // doesn't represent a valid 32-bit integer, returns default_value.</a>
-<a name="1380"><span class="lineNum">    1380 </span><span class="lineCov">          3 : int32_t Int32FromGTestEnv(const char* flag, int32_t default_value) {</span></a>
+<a name="1380"><span class="lineNum">    1380 </span><span class="lineCov">          6 : int32_t Int32FromGTestEnv(const char* flag, int32_t default_value) {</span></a>
 <a name="1381"><span class="lineNum">    1381 </span>            : #if defined(GTEST_GET_INT32_FROM_ENV_)</a>
 <a name="1382"><span class="lineNum">    1382 </span>            :   return GTEST_GET_INT32_FROM_ENV_(flag, default_value);</a>
 <a name="1383"><span class="lineNum">    1383 </span>            : #else</a>
-<a name="1384"><span class="lineNum">    1384 </span><span class="lineCov">          3 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
-<a name="1385"><span class="lineNum">    1385 </span><span class="lineCov">          3 :   const char* const string_value = posix::GetEnv(env_var.c_str());</span></a>
-<a name="1386"><span class="lineNum">    1386 </span><span class="lineCov">          3 :   if (string_value == nullptr) {</span></a>
+<a name="1384"><span class="lineNum">    1384 </span><span class="lineCov">          6 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
+<a name="1385"><span class="lineNum">    1385 </span><span class="lineCov">          6 :   const char* const string_value = posix::GetEnv(env_var.c_str());</span></a>
+<a name="1386"><span class="lineNum">    1386 </span><span class="lineCov">          6 :   if (string_value == nullptr) {</span></a>
 <a name="1387"><span class="lineNum">    1387 </span>            :     // The environment variable is not set.</a>
-<a name="1388"><span class="lineNum">    1388 </span><span class="lineCov">          3 :     return default_value;</span></a>
+<a name="1388"><span class="lineNum">    1388 </span><span class="lineCov">          6 :     return default_value;</span></a>
 <a name="1389"><span class="lineNum">    1389 </span>            :   }</a>
 <a name="1390"><span class="lineNum">    1390 </span>            : </a>
 <a name="1391"><span class="lineNum">    1391 </span><span class="lineNoCov">          0 :   int32_t result = default_value;</span></a>
@@ -1461,7 +1461,7 @@
 <a name="1399"><span class="lineNum">    1399 </span>            : </a>
 <a name="1400"><span class="lineNum">    1400 </span><span class="lineNoCov">          0 :   return result;</span></a>
 <a name="1401"><span class="lineNum">    1401 </span>            : #endif  // defined(GTEST_GET_INT32_FROM_ENV_)</a>
-<a name="1402"><span class="lineNum">    1402 </span><span class="lineCov">          3 : }</span></a>
+<a name="1402"><span class="lineNum">    1402 </span><span class="lineCov">          6 : }</span></a>
 <a name="1403"><span class="lineNum">    1403 </span>            : </a>
 <a name="1404"><span class="lineNum">    1404 </span>            : // As a special case for the 'output' flag, if GTEST_OUTPUT is not</a>
 <a name="1405"><span class="lineNum">    1405 </span>            : // set, we look for XML_OUTPUT_FILE, which is set by the Bazel build</a>
@@ -1471,26 +1471,26 @@
 <a name="1409"><span class="lineNum">    1409 </span>            : // not check that the flag is 'output'</a>
 <a name="1410"><span class="lineNum">    1410 </span>            : // In essence this checks an env variable called XML_OUTPUT_FILE</a>
 <a name="1411"><span class="lineNum">    1411 </span>            : // and if it is set we prepend &quot;xml:&quot; to its value, if it not set we return &quot;&quot;</a>
-<a name="1412"><span class="lineNum">    1412 </span><span class="lineCov">          1 : std::string OutputFlagAlsoCheckEnvVar() {</span></a>
-<a name="1413"><span class="lineNum">    1413 </span><span class="lineCov">          1 :   std::string default_value_for_output_flag = &quot;&quot;;</span></a>
-<a name="1414"><span class="lineNum">    1414 </span><span class="lineCov">          1 :   const char* xml_output_file_env = posix::GetEnv(&quot;XML_OUTPUT_FILE&quot;);</span></a>
-<a name="1415"><span class="lineNum">    1415 </span><span class="lineCov">          1 :   if (nullptr != xml_output_file_env) {</span></a>
+<a name="1412"><span class="lineNum">    1412 </span><span class="lineCov">          2 : std::string OutputFlagAlsoCheckEnvVar() {</span></a>
+<a name="1413"><span class="lineNum">    1413 </span><span class="lineCov">          2 :   std::string default_value_for_output_flag = &quot;&quot;;</span></a>
+<a name="1414"><span class="lineNum">    1414 </span><span class="lineCov">          2 :   const char* xml_output_file_env = posix::GetEnv(&quot;XML_OUTPUT_FILE&quot;);</span></a>
+<a name="1415"><span class="lineNum">    1415 </span><span class="lineCov">          2 :   if (nullptr != xml_output_file_env) {</span></a>
 <a name="1416"><span class="lineNum">    1416 </span><span class="lineNoCov">          0 :     default_value_for_output_flag = std::string(&quot;xml:&quot;) + xml_output_file_env;</span></a>
 <a name="1417"><span class="lineNum">    1417 </span>            :   }</a>
-<a name="1418"><span class="lineNum">    1418 </span><span class="lineCov">          1 :   return default_value_for_output_flag;</span></a>
+<a name="1418"><span class="lineNum">    1418 </span><span class="lineCov">          2 :   return default_value_for_output_flag;</span></a>
 <a name="1419"><span class="lineNum">    1419 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="1420"><span class="lineNum">    1420 </span>            : </a>
 <a name="1421"><span class="lineNum">    1421 </span>            : // Reads and returns the string environment variable corresponding to</a>
 <a name="1422"><span class="lineNum">    1422 </span>            : // the given flag; if it's not set, returns default_value.</a>
-<a name="1423"><span class="lineNum">    1423 </span><span class="lineCov">          6 : const char* StringFromGTestEnv(const char* flag, const char* default_value) {</span></a>
+<a name="1423"><span class="lineNum">    1423 </span><span class="lineCov">         12 : const char* StringFromGTestEnv(const char* flag, const char* default_value) {</span></a>
 <a name="1424"><span class="lineNum">    1424 </span>            : #if defined(GTEST_GET_STRING_FROM_ENV_)</a>
 <a name="1425"><span class="lineNum">    1425 </span>            :   return GTEST_GET_STRING_FROM_ENV_(flag, default_value);</a>
 <a name="1426"><span class="lineNum">    1426 </span>            : #else</a>
-<a name="1427"><span class="lineNum">    1427 </span><span class="lineCov">          6 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
-<a name="1428"><span class="lineNum">    1428 </span><span class="lineCov">          6 :   const char* const value = posix::GetEnv(env_var.c_str());</span></a>
-<a name="1429"><span class="lineNum">    1429 </span><span class="lineCov">         12 :   return value == nullptr ? default_value : value;</span></a>
+<a name="1427"><span class="lineNum">    1427 </span><span class="lineCov">         12 :   const std::string env_var = FlagToEnvVar(flag);</span></a>
+<a name="1428"><span class="lineNum">    1428 </span><span class="lineCov">         12 :   const char* const value = posix::GetEnv(env_var.c_str());</span></a>
+<a name="1429"><span class="lineNum">    1429 </span><span class="lineCov">         24 :   return value == nullptr ? default_value : value;</span></a>
 <a name="1430"><span class="lineNum">    1430 </span>            : #endif  // defined(GTEST_GET_STRING_FROM_ENV_)</a>
-<a name="1431"><span class="lineNum">    1431 </span><span class="lineCov">          6 : }</span></a>
+<a name="1431"><span class="lineNum">    1431 </span><span class="lineCov">         12 : }</span></a>
 <a name="1432"><span class="lineNum">    1432 </span>            : </a>
 <a name="1433"><span class="lineNum">    1433 </span>            : }  // namespace internal</a>
 <a name="1434"><span class="lineNum">    1434 </span>            : }  // namespace testing</a>

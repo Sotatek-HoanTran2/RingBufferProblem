@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -200,7 +200,7 @@
 <a name="138"><span class="lineNum">     138 </span>            :       //construct/destroy/copy</a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span>            :       /// Default constructor.</a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          2 :       unordered_map() = default;</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          4 :       unordered_map() = default;</span></a>
 <a name="142"><span class="lineNum">     142 </span>            : </a>
 <a name="143"><span class="lineNum">     143 </span>            :       /**</a>
 <a name="144"><span class="lineNum">     144 </span>            :        *  @brief  Default constructor creates no elements.</a>
@@ -406,8 +406,8 @@
 <a name="344"><span class="lineNum">     344 </span>            :        *  the %unordered_map.</a>
 <a name="345"><span class="lineNum">     345 </span>            :        */</a>
 <a name="346"><span class="lineNum">     346 </span>            :       iterator</a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">          1 :       end() noexcept</span></a>
-<a name="348"><span class="lineNum">     348 </span><span class="lineCov">          1 :       { return _M_h.end(); }</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineCov">          2 :       end() noexcept</span></a>
+<a name="348"><span class="lineNum">     348 </span><span class="lineCov">          2 :       { return _M_h.end(); }</span></a>
 <a name="349"><span class="lineNum">     349 </span>            : </a>
 <a name="350"><span class="lineNum">     350 </span>            :       ///@{</a>
 <a name="351"><span class="lineNum">     351 </span>            :       /**</a>
@@ -447,8 +447,8 @@
 <a name="385"><span class="lineNum">     385 </span>            :        */</a>
 <a name="386"><span class="lineNum">     386 </span>            :       template&lt;typename... _Args&gt;</a>
 <a name="387"><span class="lineNum">     387 </span>            :         std::pair&lt;iterator, bool&gt;</a>
-<a name="388"><span class="lineNum">     388 </span><span class="lineCov">          1 :         emplace(_Args&amp;&amp;... __args)</span></a>
-<a name="389"><span class="lineNum">     389 </span><span class="lineCov">          1 :         { return _M_h.emplace(std::forward&lt;_Args&gt;(__args)...); }</span></a>
+<a name="388"><span class="lineNum">     388 </span><span class="lineCov">          2 :         emplace(_Args&amp;&amp;... __args)</span></a>
+<a name="389"><span class="lineNum">     389 </span><span class="lineCov">          2 :         { return _M_h.emplace(std::forward&lt;_Args&gt;(__args)...); }</span></a>
 <a name="390"><span class="lineNum">     390 </span>            : </a>
 <a name="391"><span class="lineNum">     391 </span>            :       /**</a>
 <a name="392"><span class="lineNum">     392 </span>            :        *  @brief Attempts to build and insert a std::pair into the</a>
@@ -927,8 +927,8 @@
 <a name="865"><span class="lineNum">     865 </span>            :        *  past-the-end ( @c end() ) iterator.</a>
 <a name="866"><span class="lineNum">     866 </span>            :        */</a>
 <a name="867"><span class="lineNum">     867 </span>            :       iterator</a>
-<a name="868"><span class="lineNum">     868 </span><span class="lineCov">          1 :       find(const key_type&amp; __x)</span></a>
-<a name="869"><span class="lineNum">     869 </span><span class="lineCov">          1 :       { return _M_h.find(__x); }</span></a>
+<a name="868"><span class="lineNum">     868 </span><span class="lineCov">          2 :       find(const key_type&amp; __x)</span></a>
+<a name="869"><span class="lineNum">     869 </span><span class="lineCov">          2 :       { return _M_h.find(__x); }</span></a>
 <a name="870"><span class="lineNum">     870 </span>            : </a>
 <a name="871"><span class="lineNum">     871 </span>            : #if __cplusplus &gt; 201703L</a>
 <a name="872"><span class="lineNum">     872 </span>            :       template&lt;typename _Kt&gt;</a>

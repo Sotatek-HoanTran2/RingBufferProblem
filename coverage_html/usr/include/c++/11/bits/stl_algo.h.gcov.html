@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -529,8 +529,8 @@
 <a name="467"><span class="lineNum">     467 </span>            :   template&lt;typename _InputIterator, typename _Predicate&gt;</a>
 <a name="468"><span class="lineNum">     468 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="469"><span class="lineNum">     469 </span>            :     inline bool</a>
-<a name="470"><span class="lineNum">     470 </span><span class="lineCov">         17 :     none_of(_InputIterator __first, _InputIterator __last, _Predicate __pred)</span></a>
-<a name="471"><span class="lineNum">     471 </span><span class="lineCov">         17 :     { return __last == _GLIBCXX_STD_A::find_if(__first, __last, __pred); }</span></a>
+<a name="470"><span class="lineNum">     470 </span><span class="lineCov">         34 :     none_of(_InputIterator __first, _InputIterator __last, _Predicate __pred)</span></a>
+<a name="471"><span class="lineNum">     471 </span><span class="lineCov">         34 :     { return __last == _GLIBCXX_STD_A::find_if(__first, __last, __pred); }</span></a>
 <a name="472"><span class="lineNum">     472 </span>            : </a>
 <a name="473"><span class="lineNum">     473 </span>            :   /**</a>
 <a name="474"><span class="lineNum">     474 </span>            :    *  @brief  Checks that a predicate is true for at least one element</a>
@@ -548,8 +548,8 @@
 <a name="486"><span class="lineNum">     486 </span>            :   template&lt;typename _InputIterator, typename _Predicate&gt;</a>
 <a name="487"><span class="lineNum">     487 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="488"><span class="lineNum">     488 </span>            :     inline bool</a>
-<a name="489"><span class="lineNum">     489 </span><span class="lineCov">         17 :     any_of(_InputIterator __first, _InputIterator __last, _Predicate __pred)</span></a>
-<a name="490"><span class="lineNum">     490 </span><span class="lineCov">         17 :     { return !std::none_of(__first, __last, __pred); }</span></a>
+<a name="489"><span class="lineNum">     489 </span><span class="lineCov">         34 :     any_of(_InputIterator __first, _InputIterator __last, _Predicate __pred)</span></a>
+<a name="490"><span class="lineNum">     490 </span><span class="lineCov">         34 :     { return !std::none_of(__first, __last, __pred); }</span></a>
 <a name="491"><span class="lineNum">     491 </span>            : </a>
 <a name="492"><span class="lineNum">     492 </span>            :   /**</a>
 <a name="493"><span class="lineNum">     493 </span>            :    *  @brief  Find the first element in a sequence for which a</a>
@@ -1546,16 +1546,16 @@
 <a name="1484"><span class="lineNum">    1484 </span>            :   template&lt;typename _BidirectionalIterator, typename _Predicate&gt;</a>
 <a name="1485"><span class="lineNum">    1485 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="1486"><span class="lineNum">    1486 </span>            :     _BidirectionalIterator</a>
-<a name="1487"><span class="lineNum">    1487 </span><span class="lineCov">         10 :     __partition(_BidirectionalIterator __first, _BidirectionalIterator __last,</span></a>
+<a name="1487"><span class="lineNum">    1487 </span><span class="lineCov">         20 :     __partition(_BidirectionalIterator __first, _BidirectionalIterator __last,</span></a>
 <a name="1488"><span class="lineNum">    1488 </span>            :                 _Predicate __pred, bidirectional_iterator_tag)</a>
 <a name="1489"><span class="lineNum">    1489 </span>            :     {</a>
 <a name="1490"><span class="lineNum">    1490 </span><span class="lineNoCov">          0 :       while (true)</span></a>
 <a name="1491"><span class="lineNum">    1491 </span>            :         {</a>
 <a name="1492"><span class="lineNum">    1492 </span>            :           while (true)</a>
-<a name="1493"><span class="lineNum">    1493 </span><span class="lineCov">         10 :             if (__first == __last)</span></a>
-<a name="1494"><span class="lineNum">    1494 </span><span class="lineCov">          4 :               return __first;</span></a>
-<a name="1495"><span class="lineNum">    1495 </span><span class="lineCov">          6 :             else if (__pred(*__first))</span></a>
-<a name="1496"><span class="lineNum">    1496 </span><span class="lineCov">          6 :               ++__first;</span></a>
+<a name="1493"><span class="lineNum">    1493 </span><span class="lineCov">         20 :             if (__first == __last)</span></a>
+<a name="1494"><span class="lineNum">    1494 </span><span class="lineCov">          8 :               return __first;</span></a>
+<a name="1495"><span class="lineNum">    1495 </span><span class="lineCov">         12 :             else if (__pred(*__first))</span></a>
+<a name="1496"><span class="lineNum">    1496 </span><span class="lineCov">         12 :               ++__first;</span></a>
 <a name="1497"><span class="lineNum">    1497 </span>            :             else</a>
 <a name="1498"><span class="lineNum">    1498 </span><span class="lineNoCov">          0 :               break;</span></a>
 <a name="1499"><span class="lineNum">    1499 </span><span class="lineNoCov">          0 :           --__last;</span></a>
@@ -1878,12 +1878,12 @@
 <a name="1816"><span class="lineNum">    1816 </span>            :   template&lt;typename _RandomAccessIterator, typename _Compare&gt;</a>
 <a name="1817"><span class="lineNum">    1817 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="1818"><span class="lineNum">    1818 </span>            :     void</a>
-<a name="1819"><span class="lineNum">    1819 </span><span class="lineCov">          2 :     __insertion_sort(_RandomAccessIterator __first,</span></a>
+<a name="1819"><span class="lineNum">    1819 </span><span class="lineCov">          4 :     __insertion_sort(_RandomAccessIterator __first,</span></a>
 <a name="1820"><span class="lineNum">    1820 </span>            :                      _RandomAccessIterator __last, _Compare __comp)</a>
 <a name="1821"><span class="lineNum">    1821 </span>            :     {</a>
-<a name="1822"><span class="lineNum">    1822 </span><span class="lineCov">          2 :       if (__first == __last) return;</span></a>
+<a name="1822"><span class="lineNum">    1822 </span><span class="lineCov">          4 :       if (__first == __last) return;</span></a>
 <a name="1823"><span class="lineNum">    1823 </span>            : </a>
-<a name="1824"><span class="lineNum">    1824 </span><span class="lineCov">          2 :       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)</span></a>
+<a name="1824"><span class="lineNum">    1824 </span><span class="lineCov">          4 :       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)</span></a>
 <a name="1825"><span class="lineNum">    1825 </span>            :         {</a>
 <a name="1826"><span class="lineNum">    1826 </span><span class="lineNoCov">          0 :           if (__comp(__i, __first))</span></a>
 <a name="1827"><span class="lineNum">    1827 </span>            :             {</a>
@@ -2359,27 +2359,27 @@
 <a name="2297"><span class="lineNum">    2297 </span>            :   template&lt;typename _InputIterator1, typename _InputIterator2,</a>
 <a name="2298"><span class="lineNum">    2298 </span>            :            typename _OutputIterator, typename _Compare&gt;</a>
 <a name="2299"><span class="lineNum">    2299 </span>            :     void</a>
-<a name="2300"><span class="lineNum">    2300 </span><span class="lineCov">          1 :     __move_merge_adaptive(_InputIterator1 __first1, _InputIterator1 __last1,</span></a>
+<a name="2300"><span class="lineNum">    2300 </span><span class="lineCov">          2 :     __move_merge_adaptive(_InputIterator1 __first1, _InputIterator1 __last1,</span></a>
 <a name="2301"><span class="lineNum">    2301 </span>            :                           _InputIterator2 __first2, _InputIterator2 __last2,</a>
 <a name="2302"><span class="lineNum">    2302 </span>            :                           _OutputIterator __result, _Compare __comp)</a>
 <a name="2303"><span class="lineNum">    2303 </span>            :     {</a>
-<a name="2304"><span class="lineNum">    2304 </span><span class="lineCov">          2 :       while (__first1 != __last1 &amp;&amp; __first2 != __last2)</span></a>
+<a name="2304"><span class="lineNum">    2304 </span><span class="lineCov">          4 :       while (__first1 != __last1 &amp;&amp; __first2 != __last2)</span></a>
 <a name="2305"><span class="lineNum">    2305 </span>            :         {</a>
-<a name="2306"><span class="lineNum">    2306 </span><span class="lineCov">          1 :           if (__comp(__first2, __first1))</span></a>
+<a name="2306"><span class="lineNum">    2306 </span><span class="lineCov">          2 :           if (__comp(__first2, __first1))</span></a>
 <a name="2307"><span class="lineNum">    2307 </span>            :             {</a>
 <a name="2308"><span class="lineNum">    2308 </span><span class="lineNoCov">          0 :               *__result = _GLIBCXX_MOVE(*__first2);</span></a>
 <a name="2309"><span class="lineNum">    2309 </span><span class="lineNoCov">          0 :               ++__first2;</span></a>
 <a name="2310"><span class="lineNum">    2310 </span>            :             }</a>
 <a name="2311"><span class="lineNum">    2311 </span>            :           else</a>
 <a name="2312"><span class="lineNum">    2312 </span>            :             {</a>
-<a name="2313"><span class="lineNum">    2313 </span><span class="lineCov">          1 :               *__result = _GLIBCXX_MOVE(*__first1);</span></a>
-<a name="2314"><span class="lineNum">    2314 </span><span class="lineCov">          1 :               ++__first1;</span></a>
+<a name="2313"><span class="lineNum">    2313 </span><span class="lineCov">          2 :               *__result = _GLIBCXX_MOVE(*__first1);</span></a>
+<a name="2314"><span class="lineNum">    2314 </span><span class="lineCov">          2 :               ++__first1;</span></a>
 <a name="2315"><span class="lineNum">    2315 </span>            :             }</a>
-<a name="2316"><span class="lineNum">    2316 </span><span class="lineCov">          1 :           ++__result;</span></a>
+<a name="2316"><span class="lineNum">    2316 </span><span class="lineCov">          2 :           ++__result;</span></a>
 <a name="2317"><span class="lineNum">    2317 </span>            :         }</a>
-<a name="2318"><span class="lineNum">    2318 </span><span class="lineCov">          1 :       if (__first1 != __last1)</span></a>
+<a name="2318"><span class="lineNum">    2318 </span><span class="lineCov">          2 :       if (__first1 != __last1)</span></a>
 <a name="2319"><span class="lineNum">    2319 </span><span class="lineNoCov">          0 :         _GLIBCXX_MOVE3(__first1, __last1, __result);</span></a>
-<a name="2320"><span class="lineNum">    2320 </span><span class="lineCov">          1 :     }</span></a>
+<a name="2320"><span class="lineNum">    2320 </span><span class="lineCov">          2 :     }</span></a>
 <a name="2321"><span class="lineNum">    2321 </span>            : </a>
 <a name="2322"><span class="lineNum">    2322 </span>            :   /// This is a helper function for the __merge_adaptive routines.</a>
 <a name="2323"><span class="lineNum">    2323 </span>            :   template&lt;typename _BidirectionalIterator1, typename _BidirectionalIterator2,</a>
@@ -2466,19 +2466,19 @@
 <a name="2404"><span class="lineNum">    2404 </span>            :   template&lt;typename _BidirectionalIterator, typename _Distance, </a>
 <a name="2405"><span class="lineNum">    2405 </span>            :            typename _Pointer, typename _Compare&gt;</a>
 <a name="2406"><span class="lineNum">    2406 </span>            :     void</a>
-<a name="2407"><span class="lineNum">    2407 </span><span class="lineCov">          1 :     __merge_adaptive(_BidirectionalIterator __first,</span></a>
+<a name="2407"><span class="lineNum">    2407 </span><span class="lineCov">          2 :     __merge_adaptive(_BidirectionalIterator __first,</span></a>
 <a name="2408"><span class="lineNum">    2408 </span>            :                      _BidirectionalIterator __middle,</a>
 <a name="2409"><span class="lineNum">    2409 </span>            :                      _BidirectionalIterator __last,</a>
 <a name="2410"><span class="lineNum">    2410 </span>            :                      _Distance __len1, _Distance __len2,</a>
 <a name="2411"><span class="lineNum">    2411 </span>            :                      _Pointer __buffer, _Distance __buffer_size,</a>
 <a name="2412"><span class="lineNum">    2412 </span>            :                      _Compare __comp)</a>
 <a name="2413"><span class="lineNum">    2413 </span>            :     {</a>
-<a name="2414"><span class="lineNum">    2414 </span><span class="lineCov">          1 :       if (__len1 &lt;= __len2 &amp;&amp; __len1 &lt;= __buffer_size)</span></a>
+<a name="2414"><span class="lineNum">    2414 </span><span class="lineCov">          2 :       if (__len1 &lt;= __len2 &amp;&amp; __len1 &lt;= __buffer_size)</span></a>
 <a name="2415"><span class="lineNum">    2415 </span>            :         {</a>
-<a name="2416"><span class="lineNum">    2416 </span><span class="lineCov">          1 :           _Pointer __buffer_end = _GLIBCXX_MOVE3(__first, __middle, __buffer);</span></a>
-<a name="2417"><span class="lineNum">    2417 </span><span class="lineCov">          1 :           std::__move_merge_adaptive(__buffer, __buffer_end, __middle, __last,</span></a>
+<a name="2416"><span class="lineNum">    2416 </span><span class="lineCov">          2 :           _Pointer __buffer_end = _GLIBCXX_MOVE3(__first, __middle, __buffer);</span></a>
+<a name="2417"><span class="lineNum">    2417 </span><span class="lineCov">          2 :           std::__move_merge_adaptive(__buffer, __buffer_end, __middle, __last,</span></a>
 <a name="2418"><span class="lineNum">    2418 </span>            :                                      __first, __comp);</a>
-<a name="2419"><span class="lineNum">    2419 </span><span class="lineCov">          1 :         }</span></a>
+<a name="2419"><span class="lineNum">    2419 </span><span class="lineCov">          2 :         }</span></a>
 <a name="2420"><span class="lineNum">    2420 </span><span class="lineNoCov">          0 :       else if (__len2 &lt;= __buffer_size)</span></a>
 <a name="2421"><span class="lineNum">    2421 </span>            :         {</a>
 <a name="2422"><span class="lineNum">    2422 </span><span class="lineNoCov">          0 :           _Pointer __buffer_end = _GLIBCXX_MOVE3(__middle, __last, __buffer);</span></a>
@@ -2521,7 +2521,7 @@
 <a name="2459"><span class="lineNum">    2459 </span>            :                                 __len2 - __len22, __buffer,</a>
 <a name="2460"><span class="lineNum">    2460 </span>            :                                 __buffer_size, __comp);</a>
 <a name="2461"><span class="lineNum">    2461 </span>            :         }</a>
-<a name="2462"><span class="lineNum">    2462 </span><span class="lineCov">          1 :     }</span></a>
+<a name="2462"><span class="lineNum">    2462 </span><span class="lineCov">          2 :     }</span></a>
 <a name="2463"><span class="lineNum">    2463 </span>            : </a>
 <a name="2464"><span class="lineNum">    2464 </span>            :   /// This is a helper function for the merge routines.</a>
 <a name="2465"><span class="lineNum">    2465 </span>            :   template&lt;typename _BidirectionalIterator, typename _Distance,</a>
@@ -2742,36 +2742,36 @@
 <a name="2680"><span class="lineNum">    2680 </span>            :            typename _Compare&gt;</a>
 <a name="2681"><span class="lineNum">    2681 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="2682"><span class="lineNum">    2682 </span>            :     void</a>
-<a name="2683"><span class="lineNum">    2683 </span><span class="lineCov">          2 :     __chunk_insertion_sort(_RandomAccessIterator __first,</span></a>
+<a name="2683"><span class="lineNum">    2683 </span><span class="lineCov">          4 :     __chunk_insertion_sort(_RandomAccessIterator __first,</span></a>
 <a name="2684"><span class="lineNum">    2684 </span>            :                            _RandomAccessIterator __last,</a>
 <a name="2685"><span class="lineNum">    2685 </span>            :                            _Distance __chunk_size, _Compare __comp)</a>
 <a name="2686"><span class="lineNum">    2686 </span>            :     {</a>
-<a name="2687"><span class="lineNum">    2687 </span><span class="lineCov">          2 :       while (__last - __first &gt;= __chunk_size)</span></a>
+<a name="2687"><span class="lineNum">    2687 </span><span class="lineCov">          4 :       while (__last - __first &gt;= __chunk_size)</span></a>
 <a name="2688"><span class="lineNum">    2688 </span>            :         {</a>
 <a name="2689"><span class="lineNum">    2689 </span><span class="lineNoCov">          0 :           std::__insertion_sort(__first, __first + __chunk_size, __comp);</span></a>
 <a name="2690"><span class="lineNum">    2690 </span><span class="lineNoCov">          0 :           __first += __chunk_size;</span></a>
 <a name="2691"><span class="lineNum">    2691 </span>            :         }</a>
-<a name="2692"><span class="lineNum">    2692 </span><span class="lineCov">          2 :       std::__insertion_sort(__first, __last, __comp);</span></a>
-<a name="2693"><span class="lineNum">    2693 </span><span class="lineCov">          2 :     }</span></a>
+<a name="2692"><span class="lineNum">    2692 </span><span class="lineCov">          4 :       std::__insertion_sort(__first, __last, __comp);</span></a>
+<a name="2693"><span class="lineNum">    2693 </span><span class="lineCov">          4 :     }</span></a>
 <a name="2694"><span class="lineNum">    2694 </span>            : </a>
 <a name="2695"><span class="lineNum">    2695 </span>            :   enum { _S_chunk_size = 7 };</a>
 <a name="2696"><span class="lineNum">    2696 </span>            : </a>
 <a name="2697"><span class="lineNum">    2697 </span>            :   template&lt;typename _RandomAccessIterator, typename _Pointer, typename _Compare&gt;</a>
 <a name="2698"><span class="lineNum">    2698 </span>            :     void</a>
-<a name="2699"><span class="lineNum">    2699 </span><span class="lineCov">          2 :     __merge_sort_with_buffer(_RandomAccessIterator __first,</span></a>
+<a name="2699"><span class="lineNum">    2699 </span><span class="lineCov">          4 :     __merge_sort_with_buffer(_RandomAccessIterator __first,</span></a>
 <a name="2700"><span class="lineNum">    2700 </span>            :                              _RandomAccessIterator __last,</a>
 <a name="2701"><span class="lineNum">    2701 </span>            :                              _Pointer __buffer, _Compare __comp)</a>
 <a name="2702"><span class="lineNum">    2702 </span>            :     {</a>
 <a name="2703"><span class="lineNum">    2703 </span>            :       typedef typename iterator_traits&lt;_RandomAccessIterator&gt;::difference_type</a>
 <a name="2704"><span class="lineNum">    2704 </span>            :         _Distance;</a>
 <a name="2705"><span class="lineNum">    2705 </span>            : </a>
-<a name="2706"><span class="lineNum">    2706 </span><span class="lineCov">          2 :       const _Distance __len = __last - __first;</span></a>
-<a name="2707"><span class="lineNum">    2707 </span><span class="lineCov">          2 :       const _Pointer __buffer_last = __buffer + __len;</span></a>
+<a name="2706"><span class="lineNum">    2706 </span><span class="lineCov">          4 :       const _Distance __len = __last - __first;</span></a>
+<a name="2707"><span class="lineNum">    2707 </span><span class="lineCov">          4 :       const _Pointer __buffer_last = __buffer + __len;</span></a>
 <a name="2708"><span class="lineNum">    2708 </span>            : </a>
-<a name="2709"><span class="lineNum">    2709 </span><span class="lineCov">          2 :       _Distance __step_size = _S_chunk_size;</span></a>
-<a name="2710"><span class="lineNum">    2710 </span><span class="lineCov">          2 :       std::__chunk_insertion_sort(__first, __last, __step_size, __comp);</span></a>
+<a name="2709"><span class="lineNum">    2709 </span><span class="lineCov">          4 :       _Distance __step_size = _S_chunk_size;</span></a>
+<a name="2710"><span class="lineNum">    2710 </span><span class="lineCov">          4 :       std::__chunk_insertion_sort(__first, __last, __step_size, __comp);</span></a>
 <a name="2711"><span class="lineNum">    2711 </span>            : </a>
-<a name="2712"><span class="lineNum">    2712 </span><span class="lineCov">          2 :       while (__step_size &lt; __len)</span></a>
+<a name="2712"><span class="lineNum">    2712 </span><span class="lineCov">          4 :       while (__step_size &lt; __len)</span></a>
 <a name="2713"><span class="lineNum">    2713 </span>            :         {</a>
 <a name="2714"><span class="lineNum">    2714 </span><span class="lineNoCov">          0 :           std::__merge_sort_loop(__first, __last, __buffer,</span></a>
 <a name="2715"><span class="lineNum">    2715 </span>            :                                  __step_size, __comp);</a>
@@ -2780,19 +2780,19 @@
 <a name="2718"><span class="lineNum">    2718 </span>            :                                  __step_size, __comp);</a>
 <a name="2719"><span class="lineNum">    2719 </span><span class="lineNoCov">          0 :           __step_size *= 2;</span></a>
 <a name="2720"><span class="lineNum">    2720 </span>            :         }</a>
-<a name="2721"><span class="lineNum">    2721 </span><span class="lineCov">          2 :     }</span></a>
+<a name="2721"><span class="lineNum">    2721 </span><span class="lineCov">          4 :     }</span></a>
 <a name="2722"><span class="lineNum">    2722 </span>            : </a>
 <a name="2723"><span class="lineNum">    2723 </span>            :   template&lt;typename _RandomAccessIterator, typename _Pointer,</a>
 <a name="2724"><span class="lineNum">    2724 </span>            :            typename _Distance, typename _Compare&gt;</a>
 <a name="2725"><span class="lineNum">    2725 </span>            :     void</a>
-<a name="2726"><span class="lineNum">    2726 </span><span class="lineCov">          1 :     __stable_sort_adaptive(_RandomAccessIterator __first,</span></a>
+<a name="2726"><span class="lineNum">    2726 </span><span class="lineCov">          2 :     __stable_sort_adaptive(_RandomAccessIterator __first,</span></a>
 <a name="2727"><span class="lineNum">    2727 </span>            :                            _RandomAccessIterator __last,</a>
 <a name="2728"><span class="lineNum">    2728 </span>            :                            _Pointer __buffer, _Distance __buffer_size,</a>
 <a name="2729"><span class="lineNum">    2729 </span>            :                            _Compare __comp)</a>
 <a name="2730"><span class="lineNum">    2730 </span>            :     {</a>
-<a name="2731"><span class="lineNum">    2731 </span><span class="lineCov">          1 :       const _Distance __len = (__last - __first + 1) / 2;</span></a>
-<a name="2732"><span class="lineNum">    2732 </span><span class="lineCov">          1 :       const _RandomAccessIterator __middle = __first + __len;</span></a>
-<a name="2733"><span class="lineNum">    2733 </span><span class="lineCov">          1 :       if (__len &gt; __buffer_size)</span></a>
+<a name="2731"><span class="lineNum">    2731 </span><span class="lineCov">          2 :       const _Distance __len = (__last - __first + 1) / 2;</span></a>
+<a name="2732"><span class="lineNum">    2732 </span><span class="lineCov">          2 :       const _RandomAccessIterator __middle = __first + __len;</span></a>
+<a name="2733"><span class="lineNum">    2733 </span><span class="lineCov">          2 :       if (__len &gt; __buffer_size)</span></a>
 <a name="2734"><span class="lineNum">    2734 </span>            :         {</a>
 <a name="2735"><span class="lineNum">    2735 </span><span class="lineNoCov">          0 :           std::__stable_sort_adaptive(__first, __middle, __buffer,</span></a>
 <a name="2736"><span class="lineNum">    2736 </span>            :                                       __buffer_size, __comp);</a>
@@ -2801,16 +2801,16 @@
 <a name="2739"><span class="lineNum">    2739 </span>            :         }</a>
 <a name="2740"><span class="lineNum">    2740 </span>            :       else</a>
 <a name="2741"><span class="lineNum">    2741 </span>            :         {</a>
-<a name="2742"><span class="lineNum">    2742 </span><span class="lineCov">          1 :           std::__merge_sort_with_buffer(__first, __middle, __buffer, __comp);</span></a>
-<a name="2743"><span class="lineNum">    2743 </span><span class="lineCov">          1 :           std::__merge_sort_with_buffer(__middle, __last, __buffer, __comp);</span></a>
+<a name="2742"><span class="lineNum">    2742 </span><span class="lineCov">          2 :           std::__merge_sort_with_buffer(__first, __middle, __buffer, __comp);</span></a>
+<a name="2743"><span class="lineNum">    2743 </span><span class="lineCov">          2 :           std::__merge_sort_with_buffer(__middle, __last, __buffer, __comp);</span></a>
 <a name="2744"><span class="lineNum">    2744 </span>            :         }</a>
 <a name="2745"><span class="lineNum">    2745 </span>            : </a>
-<a name="2746"><span class="lineNum">    2746 </span><span class="lineCov">          1 :       std::__merge_adaptive(__first, __middle, __last,</span></a>
-<a name="2747"><span class="lineNum">    2747 </span><span class="lineCov">          1 :                             _Distance(__middle - __first),</span></a>
-<a name="2748"><span class="lineNum">    2748 </span><span class="lineCov">          1 :                             _Distance(__last - __middle),</span></a>
+<a name="2746"><span class="lineNum">    2746 </span><span class="lineCov">          2 :       std::__merge_adaptive(__first, __middle, __last,</span></a>
+<a name="2747"><span class="lineNum">    2747 </span><span class="lineCov">          2 :                             _Distance(__middle - __first),</span></a>
+<a name="2748"><span class="lineNum">    2748 </span><span class="lineCov">          2 :                             _Distance(__last - __middle),</span></a>
 <a name="2749"><span class="lineNum">    2749 </span>            :                             __buffer, __buffer_size,</a>
 <a name="2750"><span class="lineNum">    2750 </span>            :                             __comp);</a>
-<a name="2751"><span class="lineNum">    2751 </span><span class="lineCov">          1 :     }</span></a>
+<a name="2751"><span class="lineNum">    2751 </span><span class="lineCov">          2 :     }</span></a>
 <a name="2752"><span class="lineNum">    2752 </span>            : </a>
 <a name="2753"><span class="lineNum">    2753 </span>            :   /// This is a helper function for the stable sorting routines.</a>
 <a name="2754"><span class="lineNum">    2754 </span>            :   template&lt;typename _RandomAccessIterator, typename _Compare&gt;</a>
@@ -3873,14 +3873,14 @@
 <a name="3811"><span class="lineNum">    3811 </span>            :   template&lt;typename _InputIterator, typename _Function&gt;</a>
 <a name="3812"><span class="lineNum">    3812 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="3813"><span class="lineNum">    3813 </span>            :     _Function</a>
-<a name="3814"><span class="lineNum">    3814 </span><span class="lineCov">          9 :     for_each(_InputIterator __first, _InputIterator __last, _Function __f)</span></a>
+<a name="3814"><span class="lineNum">    3814 </span><span class="lineCov">         18 :     for_each(_InputIterator __first, _InputIterator __last, _Function __f)</span></a>
 <a name="3815"><span class="lineNum">    3815 </span>            :     {</a>
 <a name="3816"><span class="lineNum">    3816 </span>            :       // concept requirements</a>
 <a name="3817"><span class="lineNum">    3817 </span>            :       __glibcxx_function_requires(_InputIteratorConcept&lt;_InputIterator&gt;)</a>
 <a name="3818"><span class="lineNum">    3818 </span>            :       __glibcxx_requires_valid_range(__first, __last);</a>
-<a name="3819"><span class="lineNum">    3819 </span><span class="lineCov">         16 :       for (; __first != __last; ++__first)</span></a>
-<a name="3820"><span class="lineNum">    3820 </span><span class="lineCov">          7 :         __f(*__first);</span></a>
-<a name="3821"><span class="lineNum">    3821 </span><span class="lineCov">          9 :       return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.</span></a>
+<a name="3819"><span class="lineNum">    3819 </span><span class="lineCov">         32 :       for (; __first != __last; ++__first)</span></a>
+<a name="3820"><span class="lineNum">    3820 </span><span class="lineCov">         14 :         __f(*__first);</span></a>
+<a name="3821"><span class="lineNum">    3821 </span><span class="lineCov">         18 :       return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.</span></a>
 <a name="3822"><span class="lineNum">    3822 </span>            :     }</a>
 <a name="3823"><span class="lineNum">    3823 </span>            : </a>
 <a name="3824"><span class="lineNum">    3824 </span>            : #if __cplusplus &gt;= 201703L</a>
@@ -3960,7 +3960,7 @@
 <a name="3898"><span class="lineNum">    3898 </span>            :   template&lt;typename _InputIterator, typename _Predicate&gt;</a>
 <a name="3899"><span class="lineNum">    3899 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="3900"><span class="lineNum">    3900 </span>            :     inline _InputIterator</a>
-<a name="3901"><span class="lineNum">    3901 </span><span class="lineCov">         17 :     find_if(_InputIterator __first, _InputIterator __last,</span></a>
+<a name="3901"><span class="lineNum">    3901 </span><span class="lineCov">         34 :     find_if(_InputIterator __first, _InputIterator __last,</span></a>
 <a name="3902"><span class="lineNum">    3902 </span>            :             _Predicate __pred)</a>
 <a name="3903"><span class="lineNum">    3903 </span>            :     {</a>
 <a name="3904"><span class="lineNum">    3904 </span>            :       // concept requirements</a>
@@ -3969,8 +3969,8 @@
 <a name="3907"><span class="lineNum">    3907 </span>            :               typename iterator_traits&lt;_InputIterator&gt;::value_type&gt;)</a>
 <a name="3908"><span class="lineNum">    3908 </span>            :       __glibcxx_requires_valid_range(__first, __last);</a>
 <a name="3909"><span class="lineNum">    3909 </span>            : </a>
-<a name="3910"><span class="lineNum">    3910 </span><span class="lineCov">         17 :       return std::__find_if(__first, __last,</span></a>
-<a name="3911"><span class="lineNum">    3911 </span><span class="lineCov">         17 :                             __gnu_cxx::__ops::__pred_iter(__pred));</span></a>
+<a name="3910"><span class="lineNum">    3910 </span><span class="lineCov">         34 :       return std::__find_if(__first, __last,</span></a>
+<a name="3911"><span class="lineNum">    3911 </span><span class="lineCov">         34 :                             __gnu_cxx::__ops::__pred_iter(__pred));</span></a>
 <a name="3912"><span class="lineNum">    3912 </span>            :     }</a>
 <a name="3913"><span class="lineNum">    3913 </span>            : </a>
 <a name="3914"><span class="lineNum">    3914 </span>            :   /**</a>
@@ -4703,7 +4703,7 @@
 <a name="4641"><span class="lineNum">    4641 </span>            :   template&lt;typename _ForwardIterator, typename _Predicate&gt;</a>
 <a name="4642"><span class="lineNum">    4642 </span>            :     _GLIBCXX20_CONSTEXPR</a>
 <a name="4643"><span class="lineNum">    4643 </span>            :     inline _ForwardIterator</a>
-<a name="4644"><span class="lineNum">    4644 </span><span class="lineCov">          4 :     partition(_ForwardIterator __first, _ForwardIterator __last,</span></a>
+<a name="4644"><span class="lineNum">    4644 </span><span class="lineCov">          8 :     partition(_ForwardIterator __first, _ForwardIterator __last,</span></a>
 <a name="4645"><span class="lineNum">    4645 </span>            :               _Predicate   __pred)</a>
 <a name="4646"><span class="lineNum">    4646 </span>            :     {</a>
 <a name="4647"><span class="lineNum">    4647 </span>            :       // concept requirements</a>
@@ -4713,8 +4713,8 @@
 <a name="4651"><span class="lineNum">    4651 </span>            :             typename iterator_traits&lt;_ForwardIterator&gt;::value_type&gt;)</a>
 <a name="4652"><span class="lineNum">    4652 </span>            :       __glibcxx_requires_valid_range(__first, __last);</a>
 <a name="4653"><span class="lineNum">    4653 </span>            : </a>
-<a name="4654"><span class="lineNum">    4654 </span><span class="lineCov">          4 :       return std::__partition(__first, __last, __pred,</span></a>
-<a name="4655"><span class="lineNum">    4655 </span><span class="lineCov">          4 :                               std::__iterator_category(__first));</span></a>
+<a name="4654"><span class="lineNum">    4654 </span><span class="lineCov">          8 :       return std::__partition(__first, __last, __pred,</span></a>
+<a name="4655"><span class="lineNum">    4655 </span><span class="lineCov">          8 :                               std::__iterator_category(__first));</span></a>
 <a name="4656"><span class="lineNum">    4656 </span>            :     }</a>
 <a name="4657"><span class="lineNum">    4657 </span>            : </a>
 <a name="4658"><span class="lineNum">    4658 </span>            : </a>
@@ -5063,7 +5063,7 @@
 <a name="5001"><span class="lineNum">    5001 </span>            : </a>
 <a name="5002"><span class="lineNum">    5002 </span>            :   template&lt;typename _RandomAccessIterator, typename _Compare&gt;</a>
 <a name="5003"><span class="lineNum">    5003 </span>            :     inline void</a>
-<a name="5004"><span class="lineNum">    5004 </span><span class="lineCov">          1 :     __stable_sort(_RandomAccessIterator __first, _RandomAccessIterator __last,</span></a>
+<a name="5004"><span class="lineNum">    5004 </span><span class="lineCov">          2 :     __stable_sort(_RandomAccessIterator __first, _RandomAccessIterator __last,</span></a>
 <a name="5005"><span class="lineNum">    5005 </span>            :                   _Compare __comp)</a>
 <a name="5006"><span class="lineNum">    5006 </span>            :     {</a>
 <a name="5007"><span class="lineNum">    5007 </span>            :       typedef typename iterator_traits&lt;_RandomAccessIterator&gt;::value_type</a>
@@ -5072,19 +5072,19 @@
 <a name="5010"><span class="lineNum">    5010 </span>            :         _DistanceType;</a>
 <a name="5011"><span class="lineNum">    5011 </span>            :       typedef _Temporary_buffer&lt;_RandomAccessIterator, _ValueType&gt; _TmpBuf;</a>
 <a name="5012"><span class="lineNum">    5012 </span>            : </a>
-<a name="5013"><span class="lineNum">    5013 </span><span class="lineCov">          1 :       if (__first == __last)</span></a>
+<a name="5013"><span class="lineNum">    5013 </span><span class="lineCov">          2 :       if (__first == __last)</span></a>
 <a name="5014"><span class="lineNum">    5014 </span><span class="lineNoCov">          0 :         return;</span></a>
 <a name="5015"><span class="lineNum">    5015 </span>            : </a>
 <a name="5016"><span class="lineNum">    5016 </span>            :       // __stable_sort_adaptive sorts the range in two halves,</a>
 <a name="5017"><span class="lineNum">    5017 </span>            :       // so the buffer only needs to fit half the range at once.</a>
-<a name="5018"><span class="lineNum">    5018 </span><span class="lineCov">          1 :       _TmpBuf __buf(__first, (__last - __first + 1) / 2);</span></a>
+<a name="5018"><span class="lineNum">    5018 </span><span class="lineCov">          2 :       _TmpBuf __buf(__first, (__last - __first + 1) / 2);</span></a>
 <a name="5019"><span class="lineNum">    5019 </span>            : </a>
-<a name="5020"><span class="lineNum">    5020 </span><span class="lineCov">          1 :       if (__buf.begin() == 0)</span></a>
+<a name="5020"><span class="lineNum">    5020 </span><span class="lineCov">          2 :       if (__buf.begin() == 0)</span></a>
 <a name="5021"><span class="lineNum">    5021 </span><span class="lineNoCov">          0 :         std::__inplace_stable_sort(__first, __last, __comp);</span></a>
 <a name="5022"><span class="lineNum">    5022 </span>            :       else</a>
-<a name="5023"><span class="lineNum">    5023 </span><span class="lineCov">          1 :         std::__stable_sort_adaptive(__first, __last, __buf.begin(),</span></a>
-<a name="5024"><span class="lineNum">    5024 </span><span class="lineCov">          1 :                                     _DistanceType(__buf.size()), __comp);</span></a>
-<a name="5025"><span class="lineNum">    5025 </span><span class="lineCov">          1 :     }</span></a>
+<a name="5023"><span class="lineNum">    5023 </span><span class="lineCov">          2 :         std::__stable_sort_adaptive(__first, __last, __buf.begin(),</span></a>
+<a name="5024"><span class="lineNum">    5024 </span><span class="lineCov">          2 :                                     _DistanceType(__buf.size()), __comp);</span></a>
+<a name="5025"><span class="lineNum">    5025 </span><span class="lineCov">          2 :     }</span></a>
 <a name="5026"><span class="lineNum">    5026 </span>            : </a>
 <a name="5027"><span class="lineNum">    5027 </span>            :   /**</a>
 <a name="5028"><span class="lineNum">    5028 </span>            :    *  @brief Sort the elements of a sequence, preserving the relative order</a>
@@ -5139,7 +5139,7 @@
 <a name="5077"><span class="lineNum">    5077 </span>            :   */</a>
 <a name="5078"><span class="lineNum">    5078 </span>            :   template&lt;typename _RandomAccessIterator, typename _Compare&gt;</a>
 <a name="5079"><span class="lineNum">    5079 </span>            :     inline void</a>
-<a name="5080"><span class="lineNum">    5080 </span><span class="lineCov">          1 :     stable_sort(_RandomAccessIterator __first, _RandomAccessIterator __last,</span></a>
+<a name="5080"><span class="lineNum">    5080 </span><span class="lineCov">          2 :     stable_sort(_RandomAccessIterator __first, _RandomAccessIterator __last,</span></a>
 <a name="5081"><span class="lineNum">    5081 </span>            :                 _Compare __comp)</a>
 <a name="5082"><span class="lineNum">    5082 </span>            :     {</a>
 <a name="5083"><span class="lineNum">    5083 </span>            :       // concept requirements</a>
@@ -5151,9 +5151,9 @@
 <a name="5089"><span class="lineNum">    5089 </span>            :       __glibcxx_requires_valid_range(__first, __last);</a>
 <a name="5090"><span class="lineNum">    5090 </span>            :       __glibcxx_requires_irreflexive_pred(__first, __last, __comp);</a>
 <a name="5091"><span class="lineNum">    5091 </span>            : </a>
-<a name="5092"><span class="lineNum">    5092 </span><span class="lineCov">          1 :       _GLIBCXX_STD_A::__stable_sort(__first, __last,</span></a>
+<a name="5092"><span class="lineNum">    5092 </span><span class="lineCov">          2 :       _GLIBCXX_STD_A::__stable_sort(__first, __last,</span></a>
 <a name="5093"><span class="lineNum">    5093 </span>            :                                     __gnu_cxx::__ops::__iter_comp_iter(__comp));</a>
-<a name="5094"><span class="lineNum">    5094 </span><span class="lineCov">          1 :     }</span></a>
+<a name="5094"><span class="lineNum">    5094 </span><span class="lineCov">          2 :     }</span></a>
 <a name="5095"><span class="lineNum">    5095 </span>            : </a>
 <a name="5096"><span class="lineNum">    5096 </span>            :   template&lt;typename _InputIterator1, typename _InputIterator2,</a>
 <a name="5097"><span class="lineNum">    5097 </span>            :            typename _OutputIterator,</a>

@@ -1,2 +1,2 @@
-ringbuffer_tests 2 0.0232495
+ringbuffer_tests 3 0.0261155
 ---

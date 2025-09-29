@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -752,12 +752,12 @@
 <a name="690"><span class="lineNum">     690 </span>            : // ParameterizedTestSuiteInfo descriptors.</a>
 <a name="691"><span class="lineNum">     691 </span>            : class ParameterizedTestSuiteRegistry {</a>
 <a name="692"><span class="lineNum">     692 </span>            :  public:</a>
-<a name="693"><span class="lineNum">     693 </span><span class="lineCov">          1 :   ParameterizedTestSuiteRegistry() = default;</span></a>
-<a name="694"><span class="lineNum">     694 </span><span class="lineCov">          1 :   ~ParameterizedTestSuiteRegistry() {</span></a>
-<a name="695"><span class="lineNum">     695 </span><span class="lineCov">          1 :     for (auto&amp; test_suite_info : test_suite_infos_) {</span></a>
+<a name="693"><span class="lineNum">     693 </span><span class="lineCov">          2 :   ParameterizedTestSuiteRegistry() = default;</span></a>
+<a name="694"><span class="lineNum">     694 </span><span class="lineCov">          2 :   ~ParameterizedTestSuiteRegistry() {</span></a>
+<a name="695"><span class="lineNum">     695 </span><span class="lineCov">          2 :     for (auto&amp; test_suite_info : test_suite_infos_) {</span></a>
 <a name="696"><span class="lineNum">     696 </span><span class="lineNoCov">          0 :       delete test_suite_info;</span></a>
 <a name="697"><span class="lineNum">     697 </span>            :     }</a>
-<a name="698"><span class="lineNum">     698 </span><span class="lineCov">          1 :   }</span></a>
+<a name="698"><span class="lineNum">     698 </span><span class="lineCov">          2 :   }</span></a>
 <a name="699"><span class="lineNum">     699 </span>            : </a>
 <a name="700"><span class="lineNum">     700 </span>            :   // Looks up or creates and returns a structure containing information about</a>
 <a name="701"><span class="lineNum">     701 </span>            :   // tests and instantiations of a particular test suite.</a>
@@ -793,11 +793,11 @@
 <a name="731"><span class="lineNum">     731 </span>            :     }</a>
 <a name="732"><span class="lineNum">     732 </span>            :     return typed_test_info;</a>
 <a name="733"><span class="lineNum">     733 </span>            :   }</a>
-<a name="734"><span class="lineNum">     734 </span><span class="lineCov">          1 :   void RegisterTests() {</span></a>
-<a name="735"><span class="lineNum">     735 </span><span class="lineCov">          1 :     for (auto&amp; test_suite_info : test_suite_infos_) {</span></a>
+<a name="734"><span class="lineNum">     734 </span><span class="lineCov">          2 :   void RegisterTests() {</span></a>
+<a name="735"><span class="lineNum">     735 </span><span class="lineCov">          2 :     for (auto&amp; test_suite_info : test_suite_infos_) {</span></a>
 <a name="736"><span class="lineNum">     736 </span><span class="lineNoCov">          0 :       test_suite_info-&gt;RegisterTests();</span></a>
 <a name="737"><span class="lineNum">     737 </span>            :     }</a>
-<a name="738"><span class="lineNum">     738 </span><span class="lineCov">          1 :   }</span></a>
+<a name="738"><span class="lineNum">     738 </span><span class="lineCov">          2 :   }</span></a>
 <a name="739"><span class="lineNum">     739 </span>            : //  Legacy API is deprecated but still available</a>
 <a name="740"><span class="lineNum">     740 </span>            : #ifndef GTEST_REMOVE_LEGACY_TEST_CASEAPI_</a>
 <a name="741"><span class="lineNum">     741 </span>            :   template &lt;class TestCase&gt;</a>

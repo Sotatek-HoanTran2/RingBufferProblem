@@ -1,10 +1,10 @@
-Start testing: Sep 29 11:30 +07
+Start testing: Sep 29 12:54 +07
 ----------------------------------------------------------
 1/1 Testing: ringbuffer_tests
 1/1 Test: ringbuffer_tests
 Command: "/mnt/d/desktop/ringbuffer/build/test_ringbuffer"
 Directory: /mnt/d/desktop/ringbuffer/build
-"ringbuffer_tests" start time: Sep 29 11:30 +07
+"ringbuffer_tests" start time: Sep 29 12:54 +07
 Output:
 ----------------------------------------------------------
 Running main() from /mnt/d/desktop/ringbuffer/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -20,12 +20,13 @@ Running main() from /mnt/d/desktop/ringbuffer/build/_deps/googletest-src/googlet
 [----------] Global test environment tear-down
 [==========] 2 tests from 1 test suite ran. (0 ms total)
 [  PASSED  ] 2 tests.
+libgcov profiling error:/mnt/d/desktop/ringbuffer/build/CMakeFiles/test_ringbuffer.dir/tests/test_ringbuffer.cpp.gcda:overwriting an existing profile data with a different timestamp
 <end of output>
-Test time =   0.05 sec
+Test time =   0.08 sec
 ----------------------------------------------------------
 Test Passed.
-"ringbuffer_tests" end time: Sep 29 11:30 +07
+"ringbuffer_tests" end time: Sep 29 12:54 +07
 "ringbuffer_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 29 11:30 +07
+End testing: Sep 29 12:54 +07

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">60</td>
@@ -138,14 +138,14 @@
 <a name="76"><span class="lineNum">      76 </span>            : </a>
 <a name="77"><span class="lineNum">      77 </span>            :       /// Calls `delete __ptr`</a>
 <a name="78"><span class="lineNum">      78 </span>            :       void</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         63 :       operator()(_Tp* __ptr) const</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         68 :       operator()(_Tp* __ptr) const</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :       {</a>
 <a name="81"><span class="lineNum">      81 </span>            :         static_assert(!is_void&lt;_Tp&gt;::value,</a>
 <a name="82"><span class="lineNum">      82 </span>            :                       &quot;can't delete pointer to incomplete type&quot;);</a>
 <a name="83"><span class="lineNum">      83 </span>            :         static_assert(sizeof(_Tp)&gt;0,</a>
 <a name="84"><span class="lineNum">      84 </span>            :                       &quot;can't delete pointer to incomplete type&quot;);</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">         63 :         delete __ptr;</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         63 :       }</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">         68 :         delete __ptr;</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         68 :       }</span></a>
 <a name="87"><span class="lineNum">      87 </span>            :     };</a>
 <a name="88"><span class="lineNum">      88 </span>            : </a>
 <a name="89"><span class="lineNum">      89 </span>            :   // _GLIBCXX_RESOLVE_LIB_DEFECTS</a>
@@ -213,8 +213,8 @@
 <a name="151"><span class="lineNum">     151 </span>            :                      &quot;unique_ptr's deleter type must be a function object type&quot;</a>
 <a name="152"><span class="lineNum">     152 </span>            :                      &quot; or an lvalue reference type&quot; );</a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         19 :       __uniq_ptr_impl() = default;</span></a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         68 :       __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         22 :       __uniq_ptr_impl() = default;</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">        136 :       __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }</span></a>
 <a name="156"><span class="lineNum">     156 </span>            : </a>
 <a name="157"><span class="lineNum">     157 </span>            :       template&lt;typename _Del&gt;</a>
 <a name="158"><span class="lineNum">     158 </span>            :       __uniq_ptr_impl(pointer __p, _Del&amp;&amp; __d)</a>
@@ -231,18 +231,18 @@
 <a name="169"><span class="lineNum">     169 </span><span class="lineNoCov">          0 :         return *this;</span></a>
 <a name="170"><span class="lineNum">     170 </span>            :       }</a>
 <a name="171"><span class="lineNum">     171 </span>            : </a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">        157 :       pointer&amp;   _M_ptr() { return std::get&lt;0&gt;(_M_t); }</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        651 :       pointer    _M_ptr() const { return std::get&lt;0&gt;(_M_t); }</span></a>
-<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         63 :       _Dp&amp;       _M_deleter() { return std::get&lt;1&gt;(_M_t); }</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">        182 :       pointer&amp;   _M_ptr() { return std::get&lt;0&gt;(_M_t); }</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">       1302 :       pointer    _M_ptr() const { return std::get&lt;0&gt;(_M_t); }</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         68 :       _Dp&amp;       _M_deleter() { return std::get&lt;1&gt;(_M_t); }</span></a>
 <a name="175"><span class="lineNum">     175 </span>            :       const _Dp&amp; _M_deleter() const { return std::get&lt;1&gt;(_M_t); }</a>
 <a name="176"><span class="lineNum">     176 </span>            : </a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">          1 :       void reset(pointer __p) noexcept</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">          2 :       void reset(pointer __p) noexcept</span></a>
 <a name="178"><span class="lineNum">     178 </span>            :       {</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">          1 :         const pointer __old_p = _M_ptr();</span></a>
-<a name="180"><span class="lineNum">     180 </span><span class="lineCov">          1 :         _M_ptr() = __p;</span></a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">          1 :         if (__old_p)</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">          2 :         const pointer __old_p = _M_ptr();</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">          2 :         _M_ptr() = __p;</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineCov">          2 :         if (__old_p)</span></a>
 <a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 :           _M_deleter()(__old_p);</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">          1 :       }</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">          2 :       }</span></a>
 <a name="184"><span class="lineNum">     184 </span>            : </a>
 <a name="185"><span class="lineNum">     185 </span><span class="lineNoCov">          0 :       pointer release() noexcept</span></a>
 <a name="186"><span class="lineNum">     186 </span>            :       {</a>
@@ -328,9 +328,9 @@
 <a name="266"><span class="lineNum">     266 </span>            : </a>
 <a name="267"><span class="lineNum">     267 </span>            :       /// Default constructor, creates a unique_ptr that owns nothing.</a>
 <a name="268"><span class="lineNum">     268 </span>            :       template&lt;typename _Del = _Dp, typename = _DeleterConstraint&lt;_Del&gt;&gt;</a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">         19 :         constexpr unique_ptr() noexcept</span></a>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov">         19 :         : _M_t()</span></a>
-<a name="271"><span class="lineNum">     271 </span><span class="lineCov">         19 :         { }</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">         22 :         constexpr unique_ptr() noexcept</span></a>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">         22 :         : _M_t()</span></a>
+<a name="271"><span class="lineNum">     271 </span><span class="lineCov">         22 :         { }</span></a>
 <a name="272"><span class="lineNum">     272 </span>            : </a>
 <a name="273"><span class="lineNum">     273 </span>            :       /** Takes ownership of a pointer.</a>
 <a name="274"><span class="lineNum">     274 </span>            :        *</a>
@@ -340,9 +340,9 @@
 <a name="278"><span class="lineNum">     278 </span>            :        */</a>
 <a name="279"><span class="lineNum">     279 </span>            :       template&lt;typename _Del = _Dp, typename = _DeleterConstraint&lt;_Del&gt;&gt;</a>
 <a name="280"><span class="lineNum">     280 </span>            :         explicit</a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineCov">         68 :         unique_ptr(pointer __p) noexcept</span></a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">         68 :         : _M_t(__p)</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">         68 :         { }</span></a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineCov">        136 :         unique_ptr(pointer __p) noexcept</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">        136 :         : _M_t(__p)</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">        136 :         { }</span></a>
 <a name="284"><span class="lineNum">     284 </span>            : </a>
 <a name="285"><span class="lineNum">     285 </span>            :       /** Takes ownership of a pointer.</a>
 <a name="286"><span class="lineNum">     286 </span>            :        *</a>
@@ -414,15 +414,15 @@
 <a name="352"><span class="lineNum">     352 </span>            : #endif</a>
 <a name="353"><span class="lineNum">     353 </span>            : </a>
 <a name="354"><span class="lineNum">     354 </span>            :       /// Destructor, invokes the deleter if the stored pointer is not null.</a>
-<a name="355"><span class="lineNum">     355 </span><span class="lineCov">         87 :       ~unique_ptr() noexcept</span></a>
+<a name="355"><span class="lineNum">     355 </span><span class="lineCov">        100 :       ~unique_ptr() noexcept</span></a>
 <a name="356"><span class="lineNum">     356 </span>            :       {</a>
 <a name="357"><span class="lineNum">     357 </span>            :         static_assert(__is_invocable&lt;deleter_type&amp;, pointer&gt;::value,</a>
 <a name="358"><span class="lineNum">     358 </span>            :                       &quot;unique_ptr's deleter must be invocable with a pointer&quot;);</a>
-<a name="359"><span class="lineNum">     359 </span><span class="lineCov">         87 :         auto&amp; __ptr = _M_t._M_ptr();</span></a>
-<a name="360"><span class="lineNum">     360 </span><span class="lineCov">         87 :         if (__ptr != nullptr)</span></a>
-<a name="361"><span class="lineNum">     361 </span><span class="lineCov">         63 :           get_deleter()(std::move(__ptr));</span></a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">         87 :         __ptr = pointer();</span></a>
-<a name="363"><span class="lineNum">     363 </span><span class="lineCov">         87 :       }</span></a>
+<a name="359"><span class="lineNum">     359 </span><span class="lineCov">        100 :         auto&amp; __ptr = _M_t._M_ptr();</span></a>
+<a name="360"><span class="lineNum">     360 </span><span class="lineCov">        100 :         if (__ptr != nullptr)</span></a>
+<a name="361"><span class="lineNum">     361 </span><span class="lineCov">         68 :           get_deleter()(std::move(__ptr));</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">        100 :         __ptr = pointer();</span></a>
+<a name="363"><span class="lineNum">     363 </span><span class="lineCov">        100 :       }</span></a>
 <a name="364"><span class="lineNum">     364 </span>            : </a>
 <a name="365"><span class="lineNum">     365 </span>            :       // Assignment.</a>
 <a name="366"><span class="lineNum">     366 </span>            : </a>
@@ -464,10 +464,10 @@
 <a name="402"><span class="lineNum">     402 </span>            : </a>
 <a name="403"><span class="lineNum">     403 </span>            :       /// Dereference the stored pointer.</a>
 <a name="404"><span class="lineNum">     404 </span>            :       typename add_lvalue_reference&lt;element_type&gt;::type</a>
-<a name="405"><span class="lineNum">     405 </span><span class="lineCov">        588 :       operator*() const</span></a>
+<a name="405"><span class="lineNum">     405 </span><span class="lineCov">       1176 :       operator*() const</span></a>
 <a name="406"><span class="lineNum">     406 </span>            :       {</a>
-<a name="407"><span class="lineNum">     407 </span><span class="lineCov">        588 :         __glibcxx_assert(get() != pointer());</span></a>
-<a name="408"><span class="lineNum">     408 </span><span class="lineCov">        588 :         return *get();</span></a>
+<a name="407"><span class="lineNum">     407 </span><span class="lineCov">       1176 :         __glibcxx_assert(get() != pointer());</span></a>
+<a name="408"><span class="lineNum">     408 </span><span class="lineCov">       1176 :         return *get();</span></a>
 <a name="409"><span class="lineNum">     409 </span>            :       }</a>
 <a name="410"><span class="lineNum">     410 </span>            : </a>
 <a name="411"><span class="lineNum">     411 </span>            :       /// Return the stored pointer.</a>
@@ -480,13 +480,13 @@
 <a name="418"><span class="lineNum">     418 </span>            : </a>
 <a name="419"><span class="lineNum">     419 </span>            :       /// Return the stored pointer.</a>
 <a name="420"><span class="lineNum">     420 </span>            :       pointer</a>
-<a name="421"><span class="lineNum">     421 </span><span class="lineCov">        651 :       get() const noexcept</span></a>
-<a name="422"><span class="lineNum">     422 </span><span class="lineCov">        651 :       { return _M_t._M_ptr(); }</span></a>
+<a name="421"><span class="lineNum">     421 </span><span class="lineCov">       1302 :       get() const noexcept</span></a>
+<a name="422"><span class="lineNum">     422 </span><span class="lineCov">       1302 :       { return _M_t._M_ptr(); }</span></a>
 <a name="423"><span class="lineNum">     423 </span>            : </a>
 <a name="424"><span class="lineNum">     424 </span>            :       /// Return a reference to the stored deleter.</a>
 <a name="425"><span class="lineNum">     425 </span>            :       deleter_type&amp;</a>
-<a name="426"><span class="lineNum">     426 </span><span class="lineCov">         63 :       get_deleter() noexcept</span></a>
-<a name="427"><span class="lineNum">     427 </span><span class="lineCov">         63 :       { return _M_t._M_deleter(); }</span></a>
+<a name="426"><span class="lineNum">     426 </span><span class="lineCov">         68 :       get_deleter() noexcept</span></a>
+<a name="427"><span class="lineNum">     427 </span><span class="lineCov">         68 :       { return _M_t._M_deleter(); }</span></a>
 <a name="428"><span class="lineNum">     428 </span>            : </a>
 <a name="429"><span class="lineNum">     429 </span>            :       /// Return a reference to the stored deleter.</a>
 <a name="430"><span class="lineNum">     430 </span>            :       const deleter_type&amp;</a>
@@ -494,8 +494,8 @@
 <a name="432"><span class="lineNum">     432 </span>            :       { return _M_t._M_deleter(); }</a>
 <a name="433"><span class="lineNum">     433 </span>            : </a>
 <a name="434"><span class="lineNum">     434 </span>            :       /// Return @c true if the stored pointer is not null.</a>
-<a name="435"><span class="lineNum">     435 </span><span class="lineCov">          5 :       explicit operator bool() const noexcept</span></a>
-<a name="436"><span class="lineNum">     436 </span><span class="lineCov">          5 :       { return get() == pointer() ? false : true; }</span></a>
+<a name="435"><span class="lineNum">     435 </span><span class="lineCov">         10 :       explicit operator bool() const noexcept</span></a>
+<a name="436"><span class="lineNum">     436 </span><span class="lineCov">         10 :       { return get() == pointer() ? false : true; }</span></a>
 <a name="437"><span class="lineNum">     437 </span>            : </a>
 <a name="438"><span class="lineNum">     438 </span>            :       // Modifiers.</a>
 <a name="439"><span class="lineNum">     439 </span>            : </a>
@@ -511,12 +511,12 @@
 <a name="449"><span class="lineNum">     449 </span>            :        * The deleter will be invoked if a pointer is already owned.</a>
 <a name="450"><span class="lineNum">     450 </span>            :        */</a>
 <a name="451"><span class="lineNum">     451 </span>            :       void</a>
-<a name="452"><span class="lineNum">     452 </span><span class="lineCov">          1 :       reset(pointer __p = pointer()) noexcept</span></a>
+<a name="452"><span class="lineNum">     452 </span><span class="lineCov">          2 :       reset(pointer __p = pointer()) noexcept</span></a>
 <a name="453"><span class="lineNum">     453 </span>            :       {</a>
 <a name="454"><span class="lineNum">     454 </span>            :         static_assert(__is_invocable&lt;deleter_type&amp;, pointer&gt;::value,</a>
 <a name="455"><span class="lineNum">     455 </span>            :                       &quot;unique_ptr's deleter must be invocable with a pointer&quot;);</a>
-<a name="456"><span class="lineNum">     456 </span><span class="lineCov">          1 :         _M_t.reset(std::move(__p));</span></a>
-<a name="457"><span class="lineNum">     457 </span><span class="lineCov">          1 :       }</span></a>
+<a name="456"><span class="lineNum">     456 </span><span class="lineCov">          2 :         _M_t.reset(std::move(__p));</span></a>
+<a name="457"><span class="lineNum">     457 </span><span class="lineCov">          2 :       }</span></a>
 <a name="458"><span class="lineNum">     458 </span>            : </a>
 <a name="459"><span class="lineNum">     459 </span>            :       /// Exchange the pointer and deleter with another object.</a>
 <a name="460"><span class="lineNum">     460 </span>            :       void</a>
@@ -840,8 +840,8 @@
 <a name="778"><span class="lineNum">     778 </span>            :   /// unique_ptr comparison with nullptr</a>
 <a name="779"><span class="lineNum">     779 </span>            :   template&lt;typename _Tp, typename _Dp&gt;</a>
 <a name="780"><span class="lineNum">     780 </span>            :     _GLIBCXX_NODISCARD inline bool</a>
-<a name="781"><span class="lineNum">     781 </span><span class="lineCov">          5 :     operator!=(const unique_ptr&lt;_Tp, _Dp&gt;&amp; __x, nullptr_t) noexcept</span></a>
-<a name="782"><span class="lineNum">     782 </span><span class="lineCov">          5 :     { return (bool)__x; }</span></a>
+<a name="781"><span class="lineNum">     781 </span><span class="lineCov">         10 :     operator!=(const unique_ptr&lt;_Tp, _Dp&gt;&amp; __x, nullptr_t) noexcept</span></a>
+<a name="782"><span class="lineNum">     782 </span><span class="lineCov">         10 :     { return (bool)__x; }</span></a>
 <a name="783"><span class="lineNum">     783 </span>            : </a>
 <a name="784"><span class="lineNum">     784 </span>            :   /// unique_ptr comparison with nullptr</a>
 <a name="785"><span class="lineNum">     785 </span>            :   template&lt;typename _Tp, typename _Dp&gt;</a>

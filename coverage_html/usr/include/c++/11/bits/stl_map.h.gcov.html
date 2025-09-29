@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -244,7 +244,7 @@
 <a name="182"><span class="lineNum">     182 </span>            : #if __cplusplus &lt; 201103L</a>
 <a name="183"><span class="lineNum">     183 </span>            :       map() : _M_t() { }</a>
 <a name="184"><span class="lineNum">     184 </span>            : #else</a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          1 :       map() = default;</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          2 :       map() = default;</span></a>
 <a name="186"><span class="lineNum">     186 </span>            : #endif</a>
 <a name="187"><span class="lineNum">     187 </span>            : </a>
 <a name="188"><span class="lineNum">     188 </span>            :       /**</a>
@@ -361,7 +361,7 @@
 <a name="299"><span class="lineNum">     299 </span>            :        *  themselves are pointers, the pointed-to memory is not touched in any</a>
 <a name="300"><span class="lineNum">     300 </span>            :        *  way.  Managing the pointer is the user's responsibility.</a>
 <a name="301"><span class="lineNum">     301 </span>            :        */</a>
-<a name="302"><span class="lineNum">     302 </span><span class="lineCov">          1 :       ~map() = default;</span></a>
+<a name="302"><span class="lineNum">     302 </span><span class="lineCov">          2 :       ~map() = default;</span></a>
 <a name="303"><span class="lineNum">     303 </span>            : #endif</a>
 <a name="304"><span class="lineNum">     304 </span>            : </a>
 <a name="305"><span class="lineNum">     305 </span>            :       /**</a>
@@ -415,8 +415,8 @@
 <a name="353"><span class="lineNum">     353 </span>            :        *  Iteration is done in ascending order according to the keys.</a>
 <a name="354"><span class="lineNum">     354 </span>            :        */</a>
 <a name="355"><span class="lineNum">     355 </span>            :       iterator</a>
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          1 :       begin() _GLIBCXX_NOEXCEPT</span></a>
-<a name="357"><span class="lineNum">     357 </span><span class="lineCov">          1 :       { return _M_t.begin(); }</span></a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          2 :       begin() _GLIBCXX_NOEXCEPT</span></a>
+<a name="357"><span class="lineNum">     357 </span><span class="lineCov">          2 :       { return _M_t.begin(); }</span></a>
 <a name="358"><span class="lineNum">     358 </span>            : </a>
 <a name="359"><span class="lineNum">     359 </span>            :       /**</a>
 <a name="360"><span class="lineNum">     360 </span>            :        *  Returns a read-only (constant) iterator that points to the first pair</a>
@@ -433,8 +433,8 @@
 <a name="371"><span class="lineNum">     371 </span>            :        *  according to the keys.</a>
 <a name="372"><span class="lineNum">     372 </span>            :        */</a>
 <a name="373"><span class="lineNum">     373 </span>            :       iterator</a>
-<a name="374"><span class="lineNum">     374 </span><span class="lineCov">          1 :       end() _GLIBCXX_NOEXCEPT</span></a>
-<a name="375"><span class="lineNum">     375 </span><span class="lineCov">          1 :       { return _M_t.end(); }</span></a>
+<a name="374"><span class="lineNum">     374 </span><span class="lineCov">          2 :       end() _GLIBCXX_NOEXCEPT</span></a>
+<a name="375"><span class="lineNum">     375 </span><span class="lineCov">          2 :       { return _M_t.end(); }</span></a>
 <a name="376"><span class="lineNum">     376 </span>            : </a>
 <a name="377"><span class="lineNum">     377 </span>            :       /**</a>
 <a name="378"><span class="lineNum">     378 </span>            :        *  Returns a read-only (constant) iterator that points one past the last</a>

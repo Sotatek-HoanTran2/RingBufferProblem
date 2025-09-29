@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -131,21 +131,21 @@
 <a name="69"><span class="lineNum">      69 </span>            : </a>
 <a name="70"><span class="lineNum">      70 </span>            : class GTEST_API_ FilePath {</a>
 <a name="71"><span class="lineNum">      71 </span>            :  public:</a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          1 :   FilePath() : pathname_(&quot;&quot;) {}</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          2 :   FilePath() : pathname_(&quot;&quot;) {}</span></a>
 <a name="73"><span class="lineNum">      73 </span><span class="lineNoCov">          0 :   FilePath(const FilePath&amp; rhs) : pathname_(rhs.pathname_) {}</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :   FilePath(FilePath&amp;&amp; rhs) noexcept : pathname_(std::move(rhs.pathname_)) {}</a>
 <a name="75"><span class="lineNum">      75 </span>            : </a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          1 :   explicit FilePath(std::string pathname) : pathname_(std::move(pathname)) {</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          1 :     Normalize();</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          1 :   }</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          2 :   explicit FilePath(std::string pathname) : pathname_(std::move(pathname)) {</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          2 :     Normalize();</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          2 :   }</span></a>
 <a name="79"><span class="lineNum">      79 </span>            : </a>
 <a name="80"><span class="lineNum">      80 </span>            :   FilePath&amp; operator=(const FilePath&amp; rhs) {</a>
 <a name="81"><span class="lineNum">      81 </span>            :     Set(rhs);</a>
 <a name="82"><span class="lineNum">      82 </span>            :     return *this;</a>
 <a name="83"><span class="lineNum">      83 </span>            :   }</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          1 :   FilePath&amp; operator=(FilePath&amp;&amp; rhs) noexcept {</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          1 :     pathname_ = std::move(rhs.pathname_);</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          1 :     return *this;</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          2 :   FilePath&amp; operator=(FilePath&amp;&amp; rhs) noexcept {</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          2 :     pathname_ = std::move(rhs.pathname_);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          2 :     return *this;</span></a>
 <a name="87"><span class="lineNum">      87 </span>            :   }</a>
 <a name="88"><span class="lineNum">      88 </span>            : </a>
 <a name="89"><span class="lineNum">      89 </span><span class="lineNoCov">          0 :   void Set(const FilePath&amp; rhs) { pathname_ = rhs.pathname_; }</span></a>
@@ -183,7 +183,7 @@
 <a name="121"><span class="lineNum">     121 </span>            :                                          const char* extension);</a>
 <a name="122"><span class="lineNum">     122 </span>            : </a>
 <a name="123"><span class="lineNum">     123 </span>            :   // Returns true if and only if the path is &quot;&quot;.</a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          3 :   bool IsEmpty() const { return pathname_.empty(); }</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          6 :   bool IsEmpty() const { return pathname_.empty(); }</span></a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
 <a name="126"><span class="lineNum">     126 </span>            :   // If input name has a trailing separator character, removes it and returns</a>
 <a name="127"><span class="lineNum">     127 </span>            :   // the name, otherwise return the name string unmodified.</a>

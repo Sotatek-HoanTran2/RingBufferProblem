@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -194,7 +194,7 @@
 <a name="132"><span class="lineNum">     132 </span>            :       // construct/destroy/copy</a>
 <a name="133"><span class="lineNum">     133 </span>            : </a>
 <a name="134"><span class="lineNum">     134 </span>            :       /// Default constructor.</a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          8 :       unordered_set() = default;</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         16 :       unordered_set() = default;</span></a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
 <a name="137"><span class="lineNum">     137 </span>            :       /**</a>
 <a name="138"><span class="lineNum">     138 </span>            :        *  @brief  Default constructor creates no elements.</a>
@@ -329,7 +329,7 @@
 <a name="267"><span class="lineNum">     267 </span>            : </a>
 <a name="268"><span class="lineNum">     268 </span>            :       /// Move assignment operator.</a>
 <a name="269"><span class="lineNum">     269 </span>            :       unordered_set&amp;</a>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov">          2 :       operator=(unordered_set&amp;&amp;) = default;</span></a>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">          4 :       operator=(unordered_set&amp;&amp;) = default;</span></a>
 <a name="271"><span class="lineNum">     271 </span>            : </a>
 <a name="272"><span class="lineNum">     272 </span>            :       /**</a>
 <a name="273"><span class="lineNum">     273 </span>            :        *  @brief  %Unordered_set list assignment operator.</a>
@@ -379,8 +379,8 @@
 <a name="317"><span class="lineNum">     317 </span>            :        *  element in the %unordered_set.</a>
 <a name="318"><span class="lineNum">     318 </span>            :        */</a>
 <a name="319"><span class="lineNum">     319 </span>            :       iterator</a>
-<a name="320"><span class="lineNum">     320 </span><span class="lineCov">          4 :       begin() noexcept</span></a>
-<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          4 :       { return _M_h.begin(); }</span></a>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">          8 :       begin() noexcept</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          8 :       { return _M_h.begin(); }</span></a>
 <a name="322"><span class="lineNum">     322 </span>            : </a>
 <a name="323"><span class="lineNum">     323 </span>            :       const_iterator</a>
 <a name="324"><span class="lineNum">     324 </span>            :       begin() const noexcept</a>
@@ -397,8 +397,8 @@
 <a name="335"><span class="lineNum">     335 </span>            :       { return _M_h.end(); }</a>
 <a name="336"><span class="lineNum">     336 </span>            : </a>
 <a name="337"><span class="lineNum">     337 </span>            :       const_iterator</a>
-<a name="338"><span class="lineNum">     338 </span><span class="lineCov">         11 :       end() const noexcept</span></a>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         11 :       { return _M_h.end(); }</span></a>
+<a name="338"><span class="lineNum">     338 </span><span class="lineCov">         22 :       end() const noexcept</span></a>
+<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         22 :       { return _M_h.end(); }</span></a>
 <a name="340"><span class="lineNum">     340 </span>            :       ///@}</a>
 <a name="341"><span class="lineNum">     341 </span>            : </a>
 <a name="342"><span class="lineNum">     342 </span>            :       /**</a>
@@ -721,8 +721,8 @@
 <a name="659"><span class="lineNum">     659 </span>            : #endif</a>
 <a name="660"><span class="lineNum">     660 </span>            : </a>
 <a name="661"><span class="lineNum">     661 </span>            :       const_iterator</a>
-<a name="662"><span class="lineNum">     662 </span><span class="lineCov">         11 :       find(const key_type&amp; __x) const</span></a>
-<a name="663"><span class="lineNum">     663 </span><span class="lineCov">         11 :       { return _M_h.find(__x); }</span></a>
+<a name="662"><span class="lineNum">     662 </span><span class="lineCov">         22 :       find(const key_type&amp; __x) const</span></a>
+<a name="663"><span class="lineNum">     663 </span><span class="lineCov">         22 :       { return _M_h.find(__x); }</span></a>
 <a name="664"><span class="lineNum">     664 </span>            : </a>
 <a name="665"><span class="lineNum">     665 </span>            : #if __cplusplus &gt; 201703L</a>
 <a name="666"><span class="lineNum">     666 </span>            :       template&lt;typename _Kt&gt;</a>

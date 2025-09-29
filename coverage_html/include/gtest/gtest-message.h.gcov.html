@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -191,7 +191,7 @@
 <a name="129"><span class="lineNum">     129 </span>            :                               int&gt;::type = 0</a>
 <a name="130"><span class="lineNum">     130 </span>            : #endif  // GTEST_HAS_ABSL</a>
 <a name="131"><span class="lineNum">     131 </span>            :       &gt;</a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">        506 :   inline Message&amp; operator&lt;&lt;(const T&amp; val) {</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">       1012 :   inline Message&amp; operator&lt;&lt;(const T&amp; val) {</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :         // Some libraries overload &lt;&lt; for STL containers.  These</a>
 <a name="134"><span class="lineNum">     134 </span>            :     // overloads are defined in the global namespace instead of ::std.</a>
 <a name="135"><span class="lineNum">     135 </span>            :     //</a>
@@ -207,8 +207,8 @@
 <a name="145"><span class="lineNum">     145 </span>            :     // overloads of &lt;&lt; defined in the global namespace and those</a>
 <a name="146"><span class="lineNum">     146 </span>            :     // visible via Koenig lookup are both exposed in this function.</a>
 <a name="147"><span class="lineNum">     147 </span>            :     using ::operator&lt;&lt;;</a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">        506 :     *ss_ &lt;&lt; val;</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">        506 :     return *this;</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">       1012 :     *ss_ &lt;&lt; val;</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">       1012 :     return *this;</span></a>
 <a name="150"><span class="lineNum">     150 </span>            :   }</a>
 <a name="151"><span class="lineNum">     151 </span>            : </a>
 <a name="152"><span class="lineNum">     152 </span>            : #ifdef GTEST_HAS_ABSL</a>
@@ -240,13 +240,13 @@
 <a name="178"><span class="lineNum">     178 </span>            :   // ensure consistent result across compilers, we always treat NULL</a>
 <a name="179"><span class="lineNum">     179 </span>            :   // as &quot;(null)&quot;.</a>
 <a name="180"><span class="lineNum">     180 </span>            :   template &lt;typename T&gt;</a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">         24 :   inline Message&amp; operator&lt;&lt;(T* const&amp; pointer) {  // NOLINT</span></a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         24 :     if (pointer == nullptr) {</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineCov">         48 :   inline Message&amp; operator&lt;&lt;(T* const&amp; pointer) {  // NOLINT</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         48 :     if (pointer == nullptr) {</span></a>
 <a name="183"><span class="lineNum">     183 </span><span class="lineNoCov">          0 :       *ss_ &lt;&lt; &quot;(null)&quot;;</span></a>
 <a name="184"><span class="lineNum">     184 </span>            :     } else {</a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         24 :       *ss_ &lt;&lt; pointer;</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         48 :       *ss_ &lt;&lt; pointer;</span></a>
 <a name="186"><span class="lineNum">     186 </span>            :     }</a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         24 :     return *this;</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         48 :     return *this;</span></a>
 <a name="188"><span class="lineNum">     188 </span>            :   }</a>
 <a name="189"><span class="lineNum">     189 </span>            : </a>
 <a name="190"><span class="lineNum">     190 </span>            :   // Since the basic IO manipulators are overloaded for both narrow</a>
@@ -301,8 +301,8 @@
 <a name="239"><span class="lineNum">     239 </span>            : // ::std::string, ::wstring, or ::std::wstring object, each NUL</a>
 <a name="240"><span class="lineNum">     240 </span>            : // character in it is replaced with &quot;\\0&quot;.</a>
 <a name="241"><span class="lineNum">     241 </span>            : template &lt;typename T&gt;</a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">         12 : std::string StreamableToString(const T&amp; streamable) {</span></a>
-<a name="243"><span class="lineNum">     243 </span><span class="lineCov">         24 :   return (Message() &lt;&lt; streamable).GetString();</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">         24 : std::string StreamableToString(const T&amp; streamable) {</span></a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">         48 :   return (Message() &lt;&lt; streamable).GetString();</span></a>
 <a name="244"><span class="lineNum">     244 </span>            : }</a>
 <a name="245"><span class="lineNum">     245 </span>            : </a>
 <a name="246"><span class="lineNum">     246 </span>            : }  // namespace internal</a>

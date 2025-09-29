@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">25</td>
@@ -1703,21 +1703,21 @@
 <a name="1641"><span class="lineNum">    1641 </span>            : class MutexBase {</a>
 <a name="1642"><span class="lineNum">    1642 </span>            :  public:</a>
 <a name="1643"><span class="lineNum">    1643 </span>            :   // Acquires this mutex.</a>
-<a name="1644"><span class="lineNum">    1644 </span><span class="lineCov">          6 :   void lock() {</span></a>
-<a name="1645"><span class="lineNum">    1645 </span><span class="lineCov">          6 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&amp;mutex_));</span></a>
-<a name="1646"><span class="lineNum">    1646 </span><span class="lineCov">          6 :     owner_ = pthread_self();</span></a>
-<a name="1647"><span class="lineNum">    1647 </span><span class="lineCov">          6 :     has_owner_ = true;</span></a>
-<a name="1648"><span class="lineNum">    1648 </span><span class="lineCov">          6 :   }</span></a>
+<a name="1644"><span class="lineNum">    1644 </span><span class="lineCov">         12 :   void lock() {</span></a>
+<a name="1645"><span class="lineNum">    1645 </span><span class="lineCov">         12 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&amp;mutex_));</span></a>
+<a name="1646"><span class="lineNum">    1646 </span><span class="lineCov">         12 :     owner_ = pthread_self();</span></a>
+<a name="1647"><span class="lineNum">    1647 </span><span class="lineCov">         12 :     has_owner_ = true;</span></a>
+<a name="1648"><span class="lineNum">    1648 </span><span class="lineCov">         12 :   }</span></a>
 <a name="1649"><span class="lineNum">    1649 </span>            : </a>
 <a name="1650"><span class="lineNum">    1650 </span>            :   // Releases this mutex.</a>
-<a name="1651"><span class="lineNum">    1651 </span><span class="lineCov">          6 :   void unlock() {</span></a>
+<a name="1651"><span class="lineNum">    1651 </span><span class="lineCov">         12 :   void unlock() {</span></a>
 <a name="1652"><span class="lineNum">    1652 </span>            :     // Since the lock is being released the owner_ field should no longer be</a>
 <a name="1653"><span class="lineNum">    1653 </span>            :     // considered valid. We don't protect writing to has_owner_ here, as it's</a>
 <a name="1654"><span class="lineNum">    1654 </span>            :     // the caller's responsibility to ensure that the current thread holds the</a>
 <a name="1655"><span class="lineNum">    1655 </span>            :     // mutex when this is called.</a>
-<a name="1656"><span class="lineNum">    1656 </span><span class="lineCov">          6 :     has_owner_ = false;</span></a>
-<a name="1657"><span class="lineNum">    1657 </span><span class="lineCov">          6 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&amp;mutex_));</span></a>
-<a name="1658"><span class="lineNum">    1658 </span><span class="lineCov">          6 :   }</span></a>
+<a name="1656"><span class="lineNum">    1656 </span><span class="lineCov">         12 :     has_owner_ = false;</span></a>
+<a name="1657"><span class="lineNum">    1657 </span><span class="lineCov">         12 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&amp;mutex_));</span></a>
+<a name="1658"><span class="lineNum">    1658 </span><span class="lineCov">         12 :   }</span></a>
 <a name="1659"><span class="lineNum">    1659 </span>            : </a>
 <a name="1660"><span class="lineNum">    1660 </span>            :   // Does nothing if the current thread holds the mutex. Otherwise, crashes</a>
 <a name="1661"><span class="lineNum">    1661 </span>            :   // with high probability.</a>
@@ -1760,11 +1760,11 @@
 <a name="1698"><span class="lineNum">    1698 </span>            : // shares its API with MutexBase otherwise.</a>
 <a name="1699"><span class="lineNum">    1699 </span>            : class Mutex : public MutexBase {</a>
 <a name="1700"><span class="lineNum">    1700 </span>            :  public:</a>
-<a name="1701"><span class="lineNum">    1701 </span><span class="lineCov">          6 :   Mutex() {</span></a>
-<a name="1702"><span class="lineNum">    1702 </span><span class="lineCov">          6 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&amp;mutex_, nullptr));</span></a>
-<a name="1703"><span class="lineNum">    1703 </span><span class="lineCov">          6 :     has_owner_ = false;</span></a>
-<a name="1704"><span class="lineNum">    1704 </span><span class="lineCov">          6 :   }</span></a>
-<a name="1705"><span class="lineNum">    1705 </span><span class="lineCov">          6 :   ~Mutex() { GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&amp;mutex_)); }</span></a>
+<a name="1701"><span class="lineNum">    1701 </span><span class="lineCov">         12 :   Mutex() {</span></a>
+<a name="1702"><span class="lineNum">    1702 </span><span class="lineCov">         12 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&amp;mutex_, nullptr));</span></a>
+<a name="1703"><span class="lineNum">    1703 </span><span class="lineCov">         12 :     has_owner_ = false;</span></a>
+<a name="1704"><span class="lineNum">    1704 </span><span class="lineCov">         12 :   }</span></a>
+<a name="1705"><span class="lineNum">    1705 </span><span class="lineCov">         12 :   ~Mutex() { GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&amp;mutex_)); }</span></a>
 <a name="1706"><span class="lineNum">    1706 </span>            : </a>
 <a name="1707"><span class="lineNum">    1707 </span>            :  private:</a>
 <a name="1708"><span class="lineNum">    1708 </span>            :   Mutex(const Mutex&amp;) = delete;</a>
@@ -1778,9 +1778,9 @@
 <a name="1716"><span class="lineNum">    1716 </span>            : // &quot;MutexLock l(&amp;mu)&quot;.  Hence the typedef trick below.</a>
 <a name="1717"><span class="lineNum">    1717 </span>            : class GTestMutexLock {</a>
 <a name="1718"><span class="lineNum">    1718 </span>            :  public:</a>
-<a name="1719"><span class="lineNum">    1719 </span><span class="lineCov">          6 :   explicit GTestMutexLock(MutexBase* mutex) : mutex_(mutex) { mutex_-&gt;lock(); }</span></a>
+<a name="1719"><span class="lineNum">    1719 </span><span class="lineCov">         12 :   explicit GTestMutexLock(MutexBase* mutex) : mutex_(mutex) { mutex_-&gt;lock(); }</span></a>
 <a name="1720"><span class="lineNum">    1720 </span>            : </a>
-<a name="1721"><span class="lineNum">    1721 </span><span class="lineCov">          6 :   ~GTestMutexLock() { mutex_-&gt;unlock(); }</span></a>
+<a name="1721"><span class="lineNum">    1721 </span><span class="lineCov">         12 :   ~GTestMutexLock() { mutex_-&gt;unlock(); }</span></a>
 <a name="1722"><span class="lineNum">    1722 </span>            : </a>
 <a name="1723"><span class="lineNum">    1723 </span>            :  private:</a>
 <a name="1724"><span class="lineNum">    1724 </span>            :   MutexBase* const mutex_;</a>
@@ -1804,28 +1804,28 @@
 <a name="1742"><span class="lineNum">    1742 </span>            : </a>
 <a name="1743"><span class="lineNum">    1743 </span>            : // Called by pthread to delete thread-local data stored by</a>
 <a name="1744"><span class="lineNum">    1744 </span>            : // pthread_setspecific().</a>
-<a name="1745"><span class="lineNum">    1745 </span><span class="lineCov">          2 : extern &quot;C&quot; inline void DeleteThreadLocalValue(void* value_holder) {</span></a>
-<a name="1746"><span class="lineNum">    1746 </span><span class="lineCov">          2 :   delete static_cast&lt;ThreadLocalValueHolderBase*&gt;(value_holder);</span></a>
-<a name="1747"><span class="lineNum">    1747 </span><span class="lineCov">          2 : }</span></a>
+<a name="1745"><span class="lineNum">    1745 </span><span class="lineCov">          4 : extern &quot;C&quot; inline void DeleteThreadLocalValue(void* value_holder) {</span></a>
+<a name="1746"><span class="lineNum">    1746 </span><span class="lineCov">          4 :   delete static_cast&lt;ThreadLocalValueHolderBase*&gt;(value_holder);</span></a>
+<a name="1747"><span class="lineNum">    1747 </span><span class="lineCov">          4 : }</span></a>
 <a name="1748"><span class="lineNum">    1748 </span>            : </a>
 <a name="1749"><span class="lineNum">    1749 </span>            : // Implements thread-local storage on pthreads-based systems.</a>
 <a name="1750"><span class="lineNum">    1750 </span>            : template &lt;typename T&gt;</a>
 <a name="1751"><span class="lineNum">    1751 </span>            : class GTEST_API_ ThreadLocal {</a>
 <a name="1752"><span class="lineNum">    1752 </span>            :  public:</a>
-<a name="1753"><span class="lineNum">    1753 </span><span class="lineCov">          1 :   ThreadLocal()</span></a>
-<a name="1754"><span class="lineNum">    1754 </span><span class="lineCov">          1 :       : key_(CreateKey()), default_factory_(new DefaultValueHolderFactory()) {}</span></a>
-<a name="1755"><span class="lineNum">    1755 </span><span class="lineCov">          1 :   explicit ThreadLocal(const T&amp; value)</span></a>
-<a name="1756"><span class="lineNum">    1756 </span><span class="lineCov">          1 :       : key_(CreateKey()),</span></a>
-<a name="1757"><span class="lineNum">    1757 </span><span class="lineCov">          1 :         default_factory_(new InstanceValueHolderFactory(value)) {}</span></a>
+<a name="1753"><span class="lineNum">    1753 </span><span class="lineCov">          2 :   ThreadLocal()</span></a>
+<a name="1754"><span class="lineNum">    1754 </span><span class="lineCov">          2 :       : key_(CreateKey()), default_factory_(new DefaultValueHolderFactory()) {}</span></a>
+<a name="1755"><span class="lineNum">    1755 </span><span class="lineCov">          2 :   explicit ThreadLocal(const T&amp; value)</span></a>
+<a name="1756"><span class="lineNum">    1756 </span><span class="lineCov">          2 :       : key_(CreateKey()),</span></a>
+<a name="1757"><span class="lineNum">    1757 </span><span class="lineCov">          2 :         default_factory_(new InstanceValueHolderFactory(value)) {}</span></a>
 <a name="1758"><span class="lineNum">    1758 </span>            : </a>
-<a name="1759"><span class="lineNum">    1759 </span><span class="lineCov">          2 :   ~ThreadLocal() {</span></a>
+<a name="1759"><span class="lineNum">    1759 </span><span class="lineCov">          4 :   ~ThreadLocal() {</span></a>
 <a name="1760"><span class="lineNum">    1760 </span>            :     // Destroys the managed object for the current thread, if any.</a>
-<a name="1761"><span class="lineNum">    1761 </span><span class="lineCov">          2 :     DeleteThreadLocalValue(pthread_getspecific(key_));</span></a>
+<a name="1761"><span class="lineNum">    1761 </span><span class="lineCov">          4 :     DeleteThreadLocalValue(pthread_getspecific(key_));</span></a>
 <a name="1762"><span class="lineNum">    1762 </span>            : </a>
 <a name="1763"><span class="lineNum">    1763 </span>            :     // Releases resources associated with the key.  This will *not*</a>
 <a name="1764"><span class="lineNum">    1764 </span>            :     // delete managed objects for other threads.</a>
-<a name="1765"><span class="lineNum">    1765 </span><span class="lineCov">          2 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));</span></a>
-<a name="1766"><span class="lineNum">    1766 </span><span class="lineCov">          2 :   }</span></a>
+<a name="1765"><span class="lineNum">    1765 </span><span class="lineCov">          4 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));</span></a>
+<a name="1766"><span class="lineNum">    1766 </span><span class="lineCov">          4 :   }</span></a>
 <a name="1767"><span class="lineNum">    1767 </span>            : </a>
 <a name="1768"><span class="lineNum">    1768 </span><span class="lineNoCov">          0 :   T* pointer() { return GetOrCreateValue(); }</span></a>
 <a name="1769"><span class="lineNum">    1769 </span><span class="lineNoCov">          0 :   const T* pointer() const { return GetOrCreateValue(); }</span></a>
@@ -1847,13 +1847,13 @@
 <a name="1785"><span class="lineNum">    1785 </span>            :     ValueHolder&amp; operator=(const ValueHolder&amp;) = delete;</a>
 <a name="1786"><span class="lineNum">    1786 </span>            :   };</a>
 <a name="1787"><span class="lineNum">    1787 </span>            : </a>
-<a name="1788"><span class="lineNum">    1788 </span><span class="lineCov">          2 :   static pthread_key_t CreateKey() {</span></a>
+<a name="1788"><span class="lineNum">    1788 </span><span class="lineCov">          4 :   static pthread_key_t CreateKey() {</span></a>
 <a name="1789"><span class="lineNum">    1789 </span>            :     pthread_key_t key;</a>
 <a name="1790"><span class="lineNum">    1790 </span>            :     // When a thread exits, DeleteThreadLocalValue() will be called on</a>
 <a name="1791"><span class="lineNum">    1791 </span>            :     // the object managed for that thread.</a>
-<a name="1792"><span class="lineNum">    1792 </span><span class="lineCov">          2 :     GTEST_CHECK_POSIX_SUCCESS_(</span></a>
+<a name="1792"><span class="lineNum">    1792 </span><span class="lineCov">          4 :     GTEST_CHECK_POSIX_SUCCESS_(</span></a>
 <a name="1793"><span class="lineNum">    1793 </span>            :         pthread_key_create(&amp;key, &amp;DeleteThreadLocalValue));</a>
-<a name="1794"><span class="lineNum">    1794 </span><span class="lineCov">          2 :     return key;</span></a>
+<a name="1794"><span class="lineNum">    1794 </span><span class="lineCov">          4 :     return key;</span></a>
 <a name="1795"><span class="lineNum">    1795 </span>            :   }</a>
 <a name="1796"><span class="lineNum">    1796 </span>            : </a>
 <a name="1797"><span class="lineNum">    1797 </span><span class="lineNoCov">          0 :   T* GetOrCreateValue() const {</span></a>
@@ -1871,8 +1871,8 @@
 <a name="1809"><span class="lineNum">    1809 </span>            : </a>
 <a name="1810"><span class="lineNum">    1810 </span>            :   class ValueHolderFactory {</a>
 <a name="1811"><span class="lineNum">    1811 </span>            :    public:</a>
-<a name="1812"><span class="lineNum">    1812 </span><span class="lineCov">          2 :     ValueHolderFactory() = default;</span></a>
-<a name="1813"><span class="lineNum">    1813 </span><span class="lineCov">          2 :     virtual ~ValueHolderFactory() = default;</span></a>
+<a name="1812"><span class="lineNum">    1812 </span><span class="lineCov">          4 :     ValueHolderFactory() = default;</span></a>
+<a name="1813"><span class="lineNum">    1813 </span><span class="lineCov">          4 :     virtual ~ValueHolderFactory() = default;</span></a>
 <a name="1814"><span class="lineNum">    1814 </span>            :     virtual ValueHolder* MakeNewHolder() const = 0;</a>
 <a name="1815"><span class="lineNum">    1815 </span>            : </a>
 <a name="1816"><span class="lineNum">    1816 </span>            :    private:</a>
@@ -1882,7 +1882,7 @@
 <a name="1820"><span class="lineNum">    1820 </span>            : </a>
 <a name="1821"><span class="lineNum">    1821 </span>            :   class DefaultValueHolderFactory : public ValueHolderFactory {</a>
 <a name="1822"><span class="lineNum">    1822 </span>            :    public:</a>
-<a name="1823"><span class="lineNum">    1823 </span><span class="lineCov">          1 :     DefaultValueHolderFactory() = default;</span></a>
+<a name="1823"><span class="lineNum">    1823 </span><span class="lineCov">          2 :     DefaultValueHolderFactory() = default;</span></a>
 <a name="1824"><span class="lineNum">    1824 </span><span class="lineNoCov">          0 :     ValueHolder* MakeNewHolder() const override { return new ValueHolder(); }</span></a>
 <a name="1825"><span class="lineNum">    1825 </span>            : </a>
 <a name="1826"><span class="lineNum">    1826 </span>            :    private:</a>
@@ -1893,7 +1893,7 @@
 <a name="1831"><span class="lineNum">    1831 </span>            : </a>
 <a name="1832"><span class="lineNum">    1832 </span>            :   class InstanceValueHolderFactory : public ValueHolderFactory {</a>
 <a name="1833"><span class="lineNum">    1833 </span>            :    public:</a>
-<a name="1834"><span class="lineNum">    1834 </span><span class="lineCov">          1 :     explicit InstanceValueHolderFactory(const T&amp; value) : value_(value) {}</span></a>
+<a name="1834"><span class="lineNum">    1834 </span><span class="lineCov">          2 :     explicit InstanceValueHolderFactory(const T&amp; value) : value_(value) {}</span></a>
 <a name="1835"><span class="lineNum">    1835 </span><span class="lineNoCov">          0 :     ValueHolder* MakeNewHolder() const override {</span></a>
 <a name="1836"><span class="lineNum">    1836 </span><span class="lineNoCov">          0 :       return new ValueHolder(value_);</span></a>
 <a name="1837"><span class="lineNum">    1837 </span>            :     }</a>
@@ -2025,8 +2025,8 @@
 <a name="1963"><span class="lineNum">    1963 </span>            : inline char ToLower(char ch) {</a>
 <a name="1964"><span class="lineNum">    1964 </span>            :   return static_cast&lt;char&gt;(tolower(static_cast&lt;unsigned char&gt;(ch)));</a>
 <a name="1965"><span class="lineNum">    1965 </span>            : }</a>
-<a name="1966"><span class="lineNum">    1966 </span><span class="lineCov">        472 : inline char ToUpper(char ch) {</span></a>
-<a name="1967"><span class="lineNum">    1967 </span><span class="lineCov">        472 :   return static_cast&lt;char&gt;(toupper(static_cast&lt;unsigned char&gt;(ch)));</span></a>
+<a name="1966"><span class="lineNum">    1966 </span><span class="lineCov">        944 : inline char ToUpper(char ch) {</span></a>
+<a name="1967"><span class="lineNum">    1967 </span><span class="lineCov">        944 :   return static_cast&lt;char&gt;(toupper(static_cast&lt;unsigned char&gt;(ch)));</span></a>
 <a name="1968"><span class="lineNum">    1968 </span>            : }</a>
 <a name="1969"><span class="lineNum">    1969 </span>            : </a>
 <a name="1970"><span class="lineNum">    1970 </span><span class="lineNoCov">          0 : inline std::string StripTrailingSpaces(std::string str) {</span></a>
@@ -2081,7 +2081,7 @@
 <a name="2019"><span class="lineNum">    2019 </span>            : </a>
 <a name="2020"><span class="lineNum">    2020 </span>            : typedef struct stat StatStruct;</a>
 <a name="2021"><span class="lineNum">    2021 </span>            : </a>
-<a name="2022"><span class="lineNum">    2022 </span><span class="lineCov">          1 : inline int FileNo(FILE* file) { return fileno(file); }</span></a>
+<a name="2022"><span class="lineNum">    2022 </span><span class="lineCov">          2 : inline int FileNo(FILE* file) { return fileno(file); }</span></a>
 <a name="2023"><span class="lineNum">    2023 </span>            : #if GTEST_HAS_FILE_SYSTEM</a>
 <a name="2024"><span class="lineNum">    2024 </span><span class="lineNoCov">          0 : inline int Stat(const char* path, StatStruct* buf) { return stat(path, buf); }</span></a>
 <a name="2025"><span class="lineNum">    2025 </span>            : #ifdef GTEST_OS_QURT</a>
@@ -2119,22 +2119,22 @@
 <a name="2057"><span class="lineNum">    2057 </span>            : </a>
 <a name="2058"><span class="lineNum">    2058 </span>            : #else</a>
 <a name="2059"><span class="lineNum">    2059 </span>            : </a>
-<a name="2060"><span class="lineNum">    2060 </span><span class="lineCov">          1 : inline int DoIsATTY(int fd) { return isatty(fd); }</span></a>
-<a name="2061"><span class="lineNum">    2061 </span><span class="lineCov">          2 : inline int StrCaseCmp(const char* s1, const char* s2) {</span></a>
-<a name="2062"><span class="lineNum">    2062 </span><span class="lineCov">          2 :   return strcasecmp(s1, s2);</span></a>
+<a name="2060"><span class="lineNum">    2060 </span><span class="lineCov">          2 : inline int DoIsATTY(int fd) { return isatty(fd); }</span></a>
+<a name="2061"><span class="lineNum">    2061 </span><span class="lineCov">          4 : inline int StrCaseCmp(const char* s1, const char* s2) {</span></a>
+<a name="2062"><span class="lineNum">    2062 </span><span class="lineCov">          4 :   return strcasecmp(s1, s2);</span></a>
 <a name="2063"><span class="lineNum">    2063 </span>            : }</a>
 <a name="2064"><span class="lineNum">    2064 </span>            : </a>
 <a name="2065"><span class="lineNum">    2065 </span>            : #endif  // GTEST_OS_WINDOWS</a>
 <a name="2066"><span class="lineNum">    2066 </span>            : </a>
-<a name="2067"><span class="lineNum">    2067 </span><span class="lineCov">          1 : inline int IsATTY(int fd) {</span></a>
+<a name="2067"><span class="lineNum">    2067 </span><span class="lineCov">          2 : inline int IsATTY(int fd) {</span></a>
 <a name="2068"><span class="lineNum">    2068 </span>            :   // DoIsATTY might change errno (for example ENOTTY in case you redirect stdout</a>
 <a name="2069"><span class="lineNum">    2069 </span>            :   // to a file on Linux), which is unexpected, so save the previous value, and</a>
 <a name="2070"><span class="lineNum">    2070 </span>            :   // restore it after the call.</a>
-<a name="2071"><span class="lineNum">    2071 </span><span class="lineCov">          1 :   int savedErrno = errno;</span></a>
-<a name="2072"><span class="lineNum">    2072 </span><span class="lineCov">          1 :   int isAttyValue = DoIsATTY(fd);</span></a>
-<a name="2073"><span class="lineNum">    2073 </span><span class="lineCov">          1 :   errno = savedErrno;</span></a>
+<a name="2071"><span class="lineNum">    2071 </span><span class="lineCov">          2 :   int savedErrno = errno;</span></a>
+<a name="2072"><span class="lineNum">    2072 </span><span class="lineCov">          2 :   int isAttyValue = DoIsATTY(fd);</span></a>
+<a name="2073"><span class="lineNum">    2073 </span><span class="lineCov">          2 :   errno = savedErrno;</span></a>
 <a name="2074"><span class="lineNum">    2074 </span>            : </a>
-<a name="2075"><span class="lineNum">    2075 </span><span class="lineCov">          1 :   return isAttyValue;</span></a>
+<a name="2075"><span class="lineNum">    2075 </span><span class="lineCov">          2 :   return isAttyValue;</span></a>
 <a name="2076"><span class="lineNum">    2076 </span>            : }</a>
 <a name="2077"><span class="lineNum">    2077 </span>            : </a>
 <a name="2078"><span class="lineNum">    2078 </span>            : // Functions deprecated by MSVC 8.0.</a>
@@ -2184,7 +2184,7 @@
 <a name="2122"><span class="lineNum">    2122 </span><span class="lineNoCov">          0 : inline const char* StrError(int errnum) { return strerror(errnum); }</span></a>
 <a name="2123"><span class="lineNum">    2123 </span>            : #endif  // !GTEST_OS_WINDOWS_MOBILE &amp;&amp; !GTEST_OS_QURT</a>
 <a name="2124"><span class="lineNum">    2124 </span>            : </a>
-<a name="2125"><span class="lineNum">    2125 </span><span class="lineCov">         33 : inline const char* GetEnv(const char* name) {</span></a>
+<a name="2125"><span class="lineNum">    2125 </span><span class="lineCov">         66 : inline const char* GetEnv(const char* name) {</span></a>
 <a name="2126"><span class="lineNum">    2126 </span>            : #if defined(GTEST_OS_WINDOWS_MOBILE) || defined(GTEST_OS_WINDOWS_PHONE) || \</a>
 <a name="2127"><span class="lineNum">    2127 </span>            :     defined(GTEST_OS_ESP8266) || defined(GTEST_OS_XTENSA) ||               \</a>
 <a name="2128"><span class="lineNum">    2128 </span>            :     defined(GTEST_OS_QURT)</a>
@@ -2197,7 +2197,7 @@
 <a name="2135"><span class="lineNum">    2135 </span>            :   const char* const env = getenv(name);</a>
 <a name="2136"><span class="lineNum">    2136 </span>            :   return (env != nullptr &amp;&amp; env[0] != '\0') ? env : nullptr;</a>
 <a name="2137"><span class="lineNum">    2137 </span>            : #else</a>
-<a name="2138"><span class="lineNum">    2138 </span><span class="lineCov">         33 :   return getenv(name);</span></a>
+<a name="2138"><span class="lineNum">    2138 </span><span class="lineCov">         66 :   return getenv(name);</span></a>
 <a name="2139"><span class="lineNum">    2139 </span>            : #endif</a>
 <a name="2140"><span class="lineNum">    2140 </span>            : }</a>
 <a name="2141"><span class="lineNum">    2141 </span>            : </a>

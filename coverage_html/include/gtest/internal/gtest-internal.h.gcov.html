@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2025-09-29 11:30:22</td>
+            <td class="headerValue">2025-09-29 12:54:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -469,12 +469,12 @@
 <a name="407"><span class="lineNum">     407 </span>            : // returned for different types.  Calling the function twice with the</a>
 <a name="408"><span class="lineNum">     408 </span>            : // same type argument is guaranteed to return the same ID.</a>
 <a name="409"><span class="lineNum">     409 </span>            : template &lt;typename T&gt;</a>
-<a name="410"><span class="lineNum">     410 </span><span class="lineCov">          3 : TypeId GetTypeId() {</span></a>
+<a name="410"><span class="lineNum">     410 </span><span class="lineCov">          6 : TypeId GetTypeId() {</span></a>
 <a name="411"><span class="lineNum">     411 </span>            :   // The compiler is required to allocate a different</a>
 <a name="412"><span class="lineNum">     412 </span>            :   // TypeIdHelper&lt;T&gt;::dummy_ variable for each T used to instantiate</a>
 <a name="413"><span class="lineNum">     413 </span>            :   // the template.  Therefore, the address of dummy_ is guaranteed to</a>
 <a name="414"><span class="lineNum">     414 </span>            :   // be unique.</a>
-<a name="415"><span class="lineNum">     415 </span><span class="lineCov">          3 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span></a>
+<a name="415"><span class="lineNum">     415 </span><span class="lineCov">          6 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span></a>
 <a name="416"><span class="lineNum">     416 </span>            : }</a>
 <a name="417"><span class="lineNum">     417 </span>            : </a>
 <a name="418"><span class="lineNum">     418 </span>            : // Returns the type ID of ::testing::Test.  Always call this instead</a>
@@ -904,7 +904,7 @@
 <a name="842"><span class="lineNum">     842 </span>            :  public:</a>
 <a name="843"><span class="lineNum">     843 </span>            :   static const uint32_t kMaxRange = 1u &lt;&lt; 31;</a>
 <a name="844"><span class="lineNum">     844 </span>            : </a>
-<a name="845"><span class="lineNum">     845 </span><span class="lineCov">          1 :   explicit Random(uint32_t seed) : state_(seed) {}</span></a>
+<a name="845"><span class="lineNum">     845 </span><span class="lineCov">          2 :   explicit Random(uint32_t seed) : state_(seed) {}</span></a>
 <a name="846"><span class="lineNum">     846 </span>            : </a>
 <a name="847"><span class="lineNum">     847 </span><span class="lineNoCov">          0 :   void Reseed(uint32_t seed) { state_ = seed; }</span></a>
 <a name="848"><span class="lineNum">     848 </span>            : </a>
