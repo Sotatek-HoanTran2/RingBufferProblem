@@ -36,7 +36,9 @@ ringbuffer-lib/
 ├── main.c                  # Example usage
 ├── tests/
 │   └── test_ringbuffer.cpp # Unit tests (GoogleTest)
+├── run_coverage.sh         # Run scripts coverage
 └── README.md               # This file
+
 ```
 
 ---
@@ -140,7 +142,7 @@ explorer.exe $(wslpath -w $(pwd)/coverage_html/index.html)
   ```c
   #define MAX_SIZE 100
   ```
-* If `ringbuffer_init(size)` is called with a value larger than this, it will clamp to `MAX_RINGBUFFER_CAPACITY`.
+* If `ringbuffer_init(size)` is called with a value larger than this, it will clamp to `MAX_SIZE`.
 * On **buffer full/empty**, functions return `-1` instead of blocking.
 
 ---
